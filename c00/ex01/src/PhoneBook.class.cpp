@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 10:51:06 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/10/07 14:26:23 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/10/08 19:10:25 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/PhoneBook.class.hpp"
+#include "../inc/Colors.hpp"
 
 PhoneBook::PhoneBook() {}
 
@@ -42,18 +43,23 @@ void			PhoneBook::addContact(Contact *contact) {
 }
 
 void			PhoneBook::showPhoneBook() {
-	for (int i = 0; i <= 8; i++)
-	{
+	std::cout << std::endl;
+	std::cout << yellow << "                 Contacts : " << blue << std::endl << std::endl;
+	std::cout<<"|********|*********|*********|*********|"<<std::endl;
+	for (int i = 1; i <= 8; i++) {
 		if (i - 1 < PhoneBook::getNumberOfContacts()) {
-			std::cout << "|" << i - 1 << "|";
+			std::cout << "|       " << yellow << i << blue << "|";
 			showFirstName(i);
 			showLastName(i);
 			showNickname(i);
 			std::cout << std::endl;
 		}
-		else
-			std::cout << "|                                |" << std::endl;
+		else {
+			std::cout << "|       " << yellow << i << blue << "|";
+			std::cout << "         |         |         |" << std::endl;
+		}
 	}
+	std::cout<<"|********|*********|*********|*********|"<< reset << std::endl<<std::endl;
 }
 
 void			PhoneBook::setPhoneBook(Contact *contact, int index) {
@@ -62,34 +68,40 @@ void			PhoneBook::setPhoneBook(Contact *contact, int index) {
 }
 
 void			PhoneBook::showFirstName(int i) {
-	std::cout << _contacts[i - 1]->getFirstName().substr(0, 6);
-	if (_contacts[i - 1]->getFirstName().size() >= 7)
-		std::cout << ". |";
+	if (_contacts[i - 1]->getFirstName().size() >= 10) {
+		std::cout << yellow << _contacts[i - 1]->getFirstName().substr(0, 8) << ".";
+		std::cout << blue << "|";
+	}
 	else {
-		for (int j = _contacts[i - 1]->getFirstName().size(); j <= 7; j++)
+		for (int j = _contacts[i - 1]->getFirstName().size(); j <= 8; j++)
 			std::cout << " ";
-		std::cout << "|";
+		std::cout << yellow << _contacts[i - 1]->getFirstName().substr(0, 9);
+		std::cout << blue << "|";
 	}
 }
 
 void			PhoneBook::showLastName(int i) {
-	std::cout << _contacts[i - 1]->getLastName().substr(0, 6);
-	if (_contacts[i - 1]->getLastName().size() >= 7)
-		std::cout << ". |";
+	if (_contacts[i - 1]->getLastName().size() >= 10) {
+		std::cout << yellow << _contacts[i - 1]->getLastName().substr(0, 8) << ".";
+		std::cout << blue << "|";
+	}
 	else {
-		for (int j = _contacts[i - 1]->getLastName().size(); j <= 7; j++)
+		for (int j = _contacts[i - 1]->getLastName().size(); j <= 8; j++)
 			std::cout << " ";
-		std::cout << "|";
+		std::cout << yellow << _contacts[i - 1]->getLastName().substr(0, 9);
+		std::cout << blue << "|";
 	}
 }
 
 void			PhoneBook::showNickname(int i) {
-	std::cout << _contacts[i - 1]->getNickname().substr(0, 6);
-	if (_contacts[i - 1]->getNickname().size() >= 7)
-		std::cout << ". |";
+	if (_contacts[i - 1]->getNickname().size() >= 10) {
+		std::cout << yellow << _contacts[i - 1]->getNickname().substr(0, 8) << ".";
+		std::cout << blue << "|";
+	}
 	else {
-		for (int j = _contacts[i - 1]->getNickname().size(); j <= 7; j++)
+		for (int j = _contacts[i - 1]->getNickname().size(); j <= 8; j++)
 			std::cout << " ";
-		std::cout << "|";
+		std::cout << yellow << _contacts[i - 1]->getNickname().substr(0, 9);
+		std::cout << blue << "|";
 	}
 }
