@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:34:01 by anonymous         #+#    #+#             */
-/*   Updated: 2022/10/08 17:38:34 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/10/10 14:39:18 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@
 void			PrintError(int i);
 bool			CheckForValidInput(std::string infoContact, int i);
 bool			PopulateContact(std::string infoContact[5]);
+bool			checkValidIndex(std::string prompt, int numberOfContacts);
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:32:41 by anonymous         #+#    #+#             */
-/*   Updated: 2022/10/08 18:49:40 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/10/10 14:59:44 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,32 @@ bool			CheckForValidInput(std::string infoContact, int i) {
 
 bool			PopulateContact(std::string infoContact[5]) {
 	std::cout << std::endl;
-	std::cout << blue << "First Name : " << reset;
+	std::cout << green << "First Name : " << reset;
 	std::getline(std::cin, infoContact[0]);
-	std::cout << blue << "Last Name : " << reset;
+	std::cout << green << "Last Name : " << reset;
 	std::getline(std::cin, infoContact[1]);
-	std::cout << blue << "Nickname : " << reset;
+	std::cout << green << "Nickname : " << reset;
 	std::getline(std::cin, infoContact[2]);
-	std::cout << blue << "Phone Number : " << reset;
+	std::cout << green << "Phone Number : " << reset;
 	std::getline(std::cin, infoContact[3]);
-	std::cout << blue << "Darkest Secret : " << reset;
+	std::cout << green << "Darkest Secret : " << reset;
 	std::getline(std::cin, infoContact[4]);
 	for (int i = 0; i < 5; i++)
 	{
 		if (CheckForValidInput(infoContact[i], i) == false)
 			return (false);
 	}
+	std::cout << yellow << "New contact added to the phonebook." \
+		<< reset << std::endl << std::endl;
 	return (true);
+}
+
+bool			checkValidIndex(std::string prompt, int numberOfContacts) {
+	for (int i = 0; i < (int)prompt.size(); i++) {
+		if (!isdigit(prompt[i]) || std::stoi(prompt) > 8 || std::stoi(prompt) == 0) {
+			std::cout << red << "Invalid number" << std::endl; return false; }
+		if (std::stoi(prompt) > numberOfContacts) {
+			std::cout << red << "No contact at this index yet" << std::endl; return false ; }
+	}
+	return true;
 }
