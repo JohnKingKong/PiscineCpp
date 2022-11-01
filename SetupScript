@@ -1,0 +1,5 @@
+mkdir include lib doc src data &&
+mkdir src/main && touch src/main/main.cpp &&
+mkdir src/class &&
+cp ~/42/42MakefileTemplate.cpp/Makefile ./Makefile &&
+make setup

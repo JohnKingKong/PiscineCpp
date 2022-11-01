@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/01 10:33:50 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/01 14:28:05 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= phonebook
+NAME 			= ZombieCreator
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -49,39 +49,40 @@ SRCS_DIR		= src/
 
 OBJ_DIR			= obj/
 
-INCLUDE_DIR		= inc/
+INCLUDE_DIR		= include/
 
-# MAIN_DIR		= $(SRCS_DIR)main
+BIN_DIR			= bin/
 
-# CLASS_DIR		= $(SRCS_DIR)class
+MAIN_DIR		= $(SRCS_DIR)main/
+
+CLASS_DIR		= $(SRCS_DIR)class/
 
 ## ----- FILES ----- ##
-SRCS_FILES		=	Contact.class.cpp	\
-					main.cpp			\
-					PhoneBook.class.cpp	\
-					Utils.cpp			\
+SRCS_FILES		=						\
+						newZombie.cpp	\
+						randomChump.cpp	\
 
-# MAIN_FILES		=					\
+MAIN_FILES		=						\
+						main.cpp		\
 
-# CLASS_FILES		=					\
+CLASS_FILES		=						\
+						Zombie.cpp		\
 
-HEADERS_FILES	=	Colors.hpp			\
-					Contact.class.hpp	\
-					PhoneBook.class.hpp	\
-					Utils.hpp			\
+HEADERS_FILES	=						\
+						Zombie.hpp		\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
 
 OBJS			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
-# MAIN_SRCS		=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
-# CLASS_SRCS		=	$(addprefix $(CLASS_DIR), $(CLASS_FILES))
+MAIN_SRCS		=	$(addprefix $(MAIN_DIR), $(MAIN_FILES))
+CLASS_SRCS		=	$(addprefix $(CLASS_DIR), $(CLASS_FILES))
 
-OBJ_FILES		=	$(SRCS_FILES:.cpp=.o)
+OBJ_FILES		=	$(SRCS_FILES:.cpp=.o) $(MAIN_FILES:.cpp=.o) $(CLASS_FILES:.cpp=.o)
 
 HEADERS_SRCS	=	$(addprefix $(INCLUDE_DIR), $(HEADERS_FILES))
 
-VPATH			=	$(SRCS_DIR) $(HEADERS_SRCS)
+VPATH			=	$(SRCS_DIR) $(MAIN_DIR) $(CLASS_DIR) $(HEADERS_SRCS)
 
 ## ----- .C TO .O CONVERT ----- ##
 
@@ -112,6 +113,8 @@ $(OBJ_DIR)%.o: %.cpp $(HEADERS_SRCS)
 
 ## ----- TOOLS AND COLORS ----- ##
 RM				= rm -rf
+MK				= mkdir
+MOVE			= mv
 NO_PRINT		= --no-print-directory
 RED 			= \033[31m
 GREEN 			= \033[32m
@@ -122,6 +125,19 @@ AQUA 			= \033[36m
 GREY 			= \033[37m
 UNDERLINE 		= \033[4m
 NORMAL 			= \033[0m
+
+MK_BIN			= @ if [ ! -d "./bin" ]; then \
+					mkdir bin;\
+				fi
+
+IF_BIN			=@ if [ ! -d "./bin" ]; then \
+					$(CC) $(OBJS) -o $(NAME); \
+				fi
+
+BIN_MOVE		=@ if [ -f "./$(NAME)" ]; then \
+					mv $(NAME) $(BIN_DIR)$(NAME); \
+				fi
+
 
 #	Here you could add some rules to compile an other makefile
 #
@@ -149,7 +165,13 @@ all: obj $(NAME)
 #	3) Call the compiler with his dependencies
 #		(.o files, library.a) with -o (output) name
 $(NAME): $(OBJ_DIR) $(OBJS)
-	$(CC) $(OBJS) -o $(NAME)
+	@ if [ -d "./$(BIN_DIR)" ]; then \
+		echo "make: Nothing to be done for \`all'."; \
+	fi
+	$(IF_BIN)
+	$(MK_BIN)
+	$(BIN_MOVE)
+
 
 
 #	Create .o folder for easy clean
@@ -169,7 +191,7 @@ opti: CFLAGS += -O3
 opti: obj $(NAME)
 
 leak: obj $(NAME)
-	@valgrind ./$(NAME)
+	@valgrind bin/$(NAME)
 
 setup:
 	@rm -rf LICENSE images README.md .git
@@ -186,7 +208,7 @@ clean:
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(BIN_DIR)
 #	Here don't forget to delete .a previously
 #	compiled in other dir/Makefile like libft
 #
