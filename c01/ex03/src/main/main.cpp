@@ -6,17 +6,28 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:35:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/02 14:33:29 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/07 13:00:09 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/Weapon.class.hpp"
-
-std::string const &		getType();
-		void					setType(std::string type);
+#include "../../include/HumanA.class.hpp"
+#include "../../include/HumanB.class.hpp"
 
 int main()
 {
-	std::cout << "aasdasjhgdjhasgdha" << std::endl;
+	Weapon club = Weapon("FUCKING HUGE CLUB");
+	HumanA	bob("bob", club);
+
+	bob.attack();
+	club.setType("really tiny tiny ity bitty club");
+	bob.attack();
+
+	Weapon club2 = Weapon("balls of steel");
+	HumanB	jim("jim");
+	jim.setWeapon(club2);
+	jim.attack();
+	club2.setType("fire bad boy i got fire");
+	jim.attack();
 	return 0;
 }

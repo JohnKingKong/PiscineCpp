@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/07 14:24:51 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/07 15:26:09 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= replaceString
+NAME 			= helloworld
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -60,11 +60,13 @@ CLASS_DIR		= $(SRCS_DIR)class
 ## ----- FILES ----- ##
 SRCS_FILES		=						\
 
-MAIN_FILES		=	main.cpp			\
+MAIN_FILES		=						\
+					main.cpp			\
 
 CLASS_FILES		=						\
 
 HEADERS_FILES	=						\
+					main.hpp			\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##

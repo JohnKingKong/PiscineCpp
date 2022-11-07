@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 13:58:53 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/02 14:30:58 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/07 12:31:32 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 	
@@ -27,6 +27,5 @@ class Weapon {
 	private:
 
 		std::string		type;
-
 
 };
