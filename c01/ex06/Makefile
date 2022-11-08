@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/08 16:26:51 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/07 15:26:09 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,15 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=	Harl.class.cpp		\
+SRCS_FILES		=						\
 
 MAIN_FILES		=						\
 					main.cpp			\
 
 CLASS_FILES		=						\
 
-HEADERS_FILES	=	Harl.class.hpp		\
+HEADERS_FILES	=						\
+					main.hpp			\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
