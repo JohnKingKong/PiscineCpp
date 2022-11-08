@@ -1,24 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.class.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:26:00 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/08 18:08:51 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:54:01 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Harl.class.hpp"
+#pragma once
 
-int main(int argc, char *argv[]){
-	Harl	karenBot;
+#include <iostream>
 
-	if (argc != 2){
-		std::cout << "Strangely, you need something to complain about" << std::endl;
-		return 1;
-	}
-	karenBot.filter(argv[1]);
-	return 0;
-}
+class Harl {
+	public:
+
+		Harl();
+		Harl(const Harl&);
+		~Harl();
+
+		Harl& operator=(const Harl& e);
+
+		int				op;
+		std::string		levelMessage[4];
+
+		void		debug();
+		void		info();
+		void		warning();
+		void		error();
+		void		complain(int index);
+		int			getLevel(std::string level);
+		int			getValue() const;
+		void		filter(std::string level);
+
+		void		(Harl::*functionPointer[4])(void);
+
+	private:
+
+};
