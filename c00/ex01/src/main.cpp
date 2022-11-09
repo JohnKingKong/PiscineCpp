@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 17:35:05 by anonymous         #+#    #+#             */
-/*   Updated: 2022/10/10 14:38:59 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/10/10 16:52:57 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/Utils.hpp"
+#include <string>
+#include <string>
+#include <iomanip>
+#include <utility>
+#include <iostream>
+#include <stdexcept>
 
 int				main(void)
 {

@@ -11,10 +11,15 @@ echo "
 
 
 $1::$1(){}
-$1::$1(const $1&){}
+$1::$1(const $1& src){
+	*this = src;
+}
 $1::~$1(){}
 
-$1& operator = (const $1& e){}
+$1& $1::operator=($1 const & e){
+	$1::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	return *this;
+}
 
 " >> "src/class/$1.class.cpp" &&
 
@@ -25,10 +30,10 @@ class $1 {
 	public:
 
 		$1();
-		$1(const $1&);
+		$1(const $1& src);
 		~$1();
 
-		$1& operator = (const $1& e);
+		$1& operator=($1 const & e);
 
 	private:
 
@@ -41,10 +46,15 @@ echo "
 
 
 $2::$2(){}
-$2::$2(const $2&){}
+$2::$2(const $2& src){
+	*this = src;
+}
 $2::~$2(){}
 
-$2& operator = (const $2& e){}
+$2& $2::operator=($2 const & e){
+	$2::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	return *this;
+}
 
 " >> "src/class/$2.class.cpp" &&
 echo "
@@ -54,10 +64,10 @@ class $2 {
 	public:
 
 		$2();
-		$2(const $2&);
+		$2(const $2& src);
 		~$2();
 
-		$2& operator = (const $2& e);
+		$2& operator=($2 const & e);
 
 	private:
 
@@ -66,14 +76,20 @@ fi
 
 if [ "$3" != '' ]
 then
-echo "#include \"../../include/$3.class.hpp\"
+echo "
+#include \"../../include/$3.class.hpp\"
 
 
 $3::$3(){}
-$3::$3(const $3&){}
+$3::$3(const $3& src){
+	*this = src;
+}
 $3::~$3(){}
 
-$3& operator = (const $3& e){}
+$3& $3::operator=($3 const & e){
+	$3::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	return *this;
+}
 
 " >> "src/class/$3.class.cpp" &&
 echo "
@@ -83,10 +99,10 @@ class $3 {
 	public:
 
 		$3();
-		$3(const $3&);
+		$3(const $3& src);
 		~$3();
 
-		$3& operator = (const $3& e);
+		$3& operator=($3 const & e);
 
 	private:
 
@@ -100,10 +116,15 @@ echo "
 
 
 $4::$4(){}
-$4::$4(const $&){}
+$4::$4(const $4& src){
+	*this = src;
+}
 $4::~$4(){}
 
-$4& operator = (const $4& e){}
+$4& $4::operator=($4 const & e){
+	$4::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	return *this;
+}
 
 " >> "src/class/$4.class.cpp" &&
 echo "
@@ -113,10 +134,10 @@ class $4 {
 	public:
 
 		$4();
-		$a(const $4&);
+		$a(const $4&src );
 		~$4();
 
-		$4& operator = (const $4& e);
+		$4& operator=($4 const & e);
 
 	private:
 
