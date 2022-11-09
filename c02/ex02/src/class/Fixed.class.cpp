@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/09 18:13:21 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:19:38 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,4 +140,37 @@ Fixed&		Fixed::operator -- () {
 std::ostream& operator<<(std::ostream &os, Fixed const & rhs) {
 	os << rhs.toFloat();
 	return os;
+}
+
+
+Fixed& Fixed::min(Fixed const &firstNumber, Fixed const &seconNumber) {
+	const Fixed *tempPtr;
+
+	if (firstNumber < seconNumber)
+		tempPtr = &firstNumber;
+	else
+		tempPtr = &seconNumber;
+	return (Fixed&)(*tempPtr);
+}
+
+Fixed& Fixed::max(Fixed const &firstNumber, Fixed const &seconNumber) {
+	const Fixed *tempPtr;
+
+	if (firstNumber > seconNumber)
+		tempPtr = &firstNumber;
+	else
+		tempPtr = &seconNumber;
+	return (Fixed&)(*tempPtr);
+}
+
+Fixed& Fixed::min(Fixed &firstNumber, Fixed &seconNumber) {
+	if (firstNumber < seconNumber)
+		return (firstNumber);
+	return (seconNumber);
+}
+
+Fixed& Fixed::max(Fixed &firstNumber, Fixed &seconNumber) {
+	if (firstNumber > seconNumber)
+		return (firstNumber);
+	return (seconNumber);
 }

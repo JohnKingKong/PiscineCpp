@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/09 17:04:38 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/09 18:20:20 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,14 +58,14 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=						\
+SRCS_FILES		=	Fixed.class.cpp		\
 
 MAIN_FILES		=						\
 					main.cpp			\
 
 CLASS_FILES		=						\
 
-HEADERS_FILES	=						\
+HEADERS_FILES	=	Fixed.class.hpp		\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
