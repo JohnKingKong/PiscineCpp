@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.class.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 12:05:21 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/09 12:44:58 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/11/09 15:58:27 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Fixed::Fixed(){
 	std::cout << "Default constructor called" << std::endl;
 	Fixed::setRawBits(0);
 }
-Fixed::Fixed(const Fixed& src){
+Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	*this = other;
 }
 Fixed::~Fixed(){
 	std::cout << "Destructor called" << std::endl;
@@ -34,9 +34,9 @@ int			Fixed::getRawBits() const {
 	return (this->_FixedPointValue);
 }
 
-Fixed& Fixed::operator=(Fixed const & e){
+Fixed& Fixed::operator=(Fixed const & rhs){
 	std::cout << "Copy assignment operator called" << std::endl;
-	Fixed::setRawBits(e.getRawBits());
+	Fixed::setRawBits(rhs.getRawBits());
 	return (*this);
 }
 

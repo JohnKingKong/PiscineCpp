@@ -1,27 +1,30 @@
 #!/bin/bash
 
 mkdir include lib doc src data &&
-mkdir src/main && touch src/main/main.cpp &&
+mkdir src/main &&
 mkdir src/class &&
 
 if [ "$1" !=  '' ]
 then
 echo "
-#include \"../../include/$1.class.hpp\"
+#include \"$1.class.hpp\"
 
 
 $1::$1(){}
-$1::$1(const $1& src){
-	*this = src;
+$1::$1(const $1& other){
+	*this = other;
 }
 $1::~$1(){}
 
-$1& $1::operator=($1 const & e){
+$1& $1::operator=($1 const & rhs){
 	$1::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
 " >> "src/class/$1.class.cpp" &&
+
+echo "
+#include \"$1.class.hpp\"" >> "src/main/main.cpp" &&
 
 echo "
 #pragma once
@@ -30,33 +33,37 @@ class $1 {
 	public:
 
 		$1();
-		$1(const $1& src);
+		$1(const $1& other);
 		~$1();
 
-		$1& operator=($1 const & e);
+		$1& operator=($1 const & rhs);
 
 	private:
 
 };" >> "include/$1.class.hpp"
 fi
-if [ "$2" != '' ]
+
+if [ "$2" !=  '' ]
 then
 echo "
-#include \"../../include/$2.class.hpp\"
+#include \"$2.class.hpp\"
 
 
 $2::$2(){}
-$2::$2(const $2& src){
-	*this = src;
+$2::$2(const $2& other){
+	*this = other;
 }
 $2::~$2(){}
 
-$2& $2::operator=($2 const & e){
+$2& $2::operator=($2 const & rhs){
 	$2::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
 " >> "src/class/$2.class.cpp" &&
+
+echo "#include \"$2.class.hpp\"" >> "src/main/main.cpp" &&
+
 echo "
 #pragma once
 
@@ -64,34 +71,37 @@ class $2 {
 	public:
 
 		$2();
-		$2(const $2& src);
+		$2(const $2& other);
 		~$2();
 
-		$2& operator=($2 const & e);
+		$2& operator=($2 const & rhs);
 
 	private:
 
 };" >> "include/$2.class.hpp"
 fi
 
-if [ "$3" != '' ]
+if [ "$3" !=  '' ]
 then
 echo "
-#include \"../../include/$3.class.hpp\"
+#include \"$3.class.hpp\"
 
 
 $3::$3(){}
-$3::$3(const $3& src){
-	*this = src;
+$3::$3(const $3& other){
+	*this = other;
 }
 $3::~$3(){}
 
-$3& $3::operator=($3 const & e){
+$3& $3::operator=($3 const & rhs){
 	$3::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
 " >> "src/class/$3.class.cpp" &&
+
+echo "#include \"$3.class.hpp\"" >> "src/main/main.cpp" &&
+
 echo "
 #pragma once
 
@@ -99,34 +109,37 @@ class $3 {
 	public:
 
 		$3();
-		$3(const $3& src);
+		$3(const $3& other);
 		~$3();
 
-		$3& operator=($3 const & e);
+		$3& operator=($3 const & rhs);
 
 	private:
 
 };" >> "include/$3.class.hpp"
 fi
 
-if [ "$4" != '' ]
+if [ "$4" !=  '' ]
 then
 echo "
-#include \"../../include/$4.class.hpp\"
+#include \"$4.class.hpp\"
 
 
 $4::$4(){}
-$4::$4(const $4& src){
-	*this = src;
+$4::$4(const $4& other){
+	*this = other;
 }
 $4::~$4(){}
 
-$4& $4::operator=($4 const & e){
+$4& $4::operator=($4 const & rhs){
 	$4::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
 " >> "src/class/$4.class.cpp" &&
+
+echo "#include \"$4.class.hpp\"" >> "src/main/main.cpp" &&
+
 echo "
 #pragma once
 
@@ -134,14 +147,52 @@ class $4 {
 	public:
 
 		$4();
-		$a(const $4&src );
+		$4(const $4& other);
 		~$4();
 
-		$4& operator=($4 const & e);
+		$4& operator=($4 const & rhs);
 
 	private:
 
 };" >> "include/$4.class.hpp"
+fi
+
+if [ "$5" !=  '' ]
+then
+echo "
+#include \"$5.class.hpp\"
+
+
+$5::$5(){}
+$5::$5(const $5& other){
+	*this = other;
+}
+$5::~$5(){}
+
+$5& $5::operator=($5 const & rhs){
+	$5::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	return *this;
+}
+
+" >> "src/class/$5.class.cpp" &&
+
+echo "#include \"$5.class.hpp\"" >> "src/main/main.cpp" &&
+
+echo "
+#pragma once
+
+class $5 {
+	public:
+
+		$5();
+		$5(const $5& other);
+		~$5();
+
+		$5& operator=($5 const & rhs);
+
+	private:
+
+};" >> "include/$5.class.hpp"
 fi
 
 cp ~/42/42MakefileTemplate.cpp/Makefile ./Makefile &&
