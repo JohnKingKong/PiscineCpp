@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/09 18:01:47 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:13:21 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,29 @@ bool		Fixed::operator != (Fixed const & rhs) {
 }
 
 
+Fixed		Fixed::operator ++ (int) {
+	Fixed	temp(*this);
+
+	this->_FixedPointValue++;
+	return (temp);
+}
+
+Fixed&		Fixed::operator ++ () {
+	++_FixedPointValue;
+	return (*this);
+}
+
+Fixed		Fixed::operator -- (int) {
+	Fixed	temp(*this);
+
+	this->_FixedPointValue--;
+	return (temp);
+}
+
+Fixed&		Fixed::operator -- () {
+	--_FixedPointValue;
+	return (*this);
+}
 std::ostream& operator<<(std::ostream &os, Fixed const & rhs) {
 	os << rhs.toFloat();
 	return os;

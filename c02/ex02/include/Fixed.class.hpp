@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/09 17:58:18 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 18:10:36 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,11 @@ class Fixed {
 		Fixed&		operator - (Fixed const & rhs);
 		Fixed&		operator * (Fixed const & rhs);
 		Fixed&		operator / (Fixed const & rhs);
+
+		Fixed		operator ++ (int);
+		Fixed&		operator ++ ();
+		Fixed		operator -- (int);
+		Fixed		operator -- ();
 
 /*----------------Member Functions----------------------*/
 
