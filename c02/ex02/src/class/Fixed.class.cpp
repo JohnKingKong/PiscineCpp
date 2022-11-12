@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/09 18:19:38 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:28:50 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,24 @@
 
 
 Fixed::Fixed() : _FixedPointValue(0) {
-	std::cout << "Default constructor called" << std::endl;
 }
 
 
 Fixed::Fixed(int const intInput) : _FixedPointValue(intInput << _nbBitsForFixedPoint) {
-	std::cout << "Int constructor called" << std::endl;
 }
 
 
 Fixed::Fixed(float const floatInput){
 	setRawBits((int)roundf(floatInput * (float)(1 << _nbBitsForFixedPoint)));
-	std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
 Fixed::~Fixed(){
-	std::cout << "Destructor called" << std::endl;
 }
+
 
 
 /*-------------Member Functions-----------------*/
@@ -62,115 +58,138 @@ int			Fixed::toInt() const {
 }
 
 
-/*--------------Operator overload----------------*/
+
+/*---------------Non-Member Functions------------------*/
+
+
+Fixed &		Fixed::min(Fixed const &firstNumber, Fixed const &secondNumber) {
+	const Fixed		*tempInstance;
+
+	if (firstNumber < secondNumber)
+		tempInstance = &firstNumber;
+	else
+		tempInstance = &secondNumber;
+	return ((Fixed &)(*tempInstance));
+}
+
+Fixed &		Fixed::min(Fixed &firstNumber, Fixed &secondNumber) {
+	if (firstNumber < secondNumber)
+		return (firstNumber);
+	return (secondNumber);
+}
+
+Fixed &		Fixed::max(Fixed const &firstNumber, Fixed const &secondNumber) {
+	const Fixed		*tempInstance;
+
+	if (firstNumber > secondNumber)
+		tempInstance = &firstNumber;
+	else
+		tempInstance = &secondNumber;
+	return ((Fixed &)(*tempInstance));
+}
+
+Fixed &		Fixed::max(Fixed &firstNumber, Fixed &secondNumber) {
+	if (firstNumber > secondNumber)
+		return (firstNumber);
+	return (secondNumber);
+}
+
+
+
+/*-----Assignation operator overload----------------*/
 
 
 Fixed&		Fixed::operator = (Fixed const & rhs) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	Fixed::setRawBits(rhs.getRawBits());
 	return (*this);
 }
 
 
-Fixed&		Fixed::operator + (Fixed const & rhs) {
-	return (Fixed::toFloat() + rhs.toFloat());
-}
 
-Fixed&		Fixed::operator - (Fixed const & rhs) {
-	return (Fixed::toFloat() - rhs.toFloat());
-}
-
-Fixed&		Fixed::operator * (Fixed const & rhs) {
-	return (Fixed::toFloat() * rhs.toFloat());
-}
-
-Fixed&		Fixed::operator / (Fixed const & rhs) {
-	return (Fixed::toFloat() / rhs.toFloat());
-}
+/*------------Comparative operator overload-------------*/
 
 
-bool		Fixed::operator < (Fixed const & rhs) {
-	return (Fixed::toFloat() < rhs.toFloat());
+bool		Fixed::operator > (Fixed const & rhs) const {
+		return (Fixed::toFloat() > rhs.toFloat());
 }
 
-bool		Fixed::operator > (Fixed const & rhs) {
-	return (Fixed::toFloat() > rhs.toFloat());
+bool		Fixed::operator < (Fixed const & rhs) const {
+		return (Fixed::toFloat() < rhs.toFloat());
 }
 
-bool		Fixed::operator >= (Fixed const & rhs) {
-	return (Fixed::toFloat() >= rhs.toFloat());
+bool		Fixed::operator >= (Fixed const & rhs) const {
+		return (Fixed::toFloat() >= rhs.toFloat());
 }
 
-bool		Fixed::operator <= (Fixed const & rhs) {
-	return (Fixed::toFloat() <= rhs.toFloat());
+bool		Fixed::operator <= (Fixed const & rhs) const {
+		return (Fixed::toFloat() <= rhs.toFloat());
 }
 
-bool		Fixed::operator == (Fixed const & rhs) {
-	return (Fixed::toFloat() == rhs.toFloat());
+bool		Fixed::operator == (Fixed const & rhs) const {
+		return (Fixed::toFloat() == rhs.toFloat());
 }
 
-bool		Fixed::operator != (Fixed const & rhs) {
-	return (Fixed::toFloat() != rhs.toFloat());
+bool		Fixed::operator != (Fixed const & rhs) const {
+		return (Fixed::toFloat() != rhs.toFloat());
 }
+
+
+
+/*----------Arithmetic operator overlaod----------*/
+
+
+
+Fixed		Fixed::operator + (Fixed const & rhs) const {
+	return (Fixed(Fixed::toFloat() + rhs.toFloat()));
+}
+
+Fixed		Fixed::operator - (Fixed const & rhs) const {
+	return (Fixed(Fixed::toFloat() - rhs.toFloat()));
+}
+
+Fixed		Fixed::operator * (Fixed const & rhs) const {
+	return (Fixed(Fixed::toFloat() * rhs.toFloat()));
+}
+
+Fixed		Fixed::operator / (Fixed const & rhs) const {
+	return (Fixed(Fixed::toFloat() / rhs.toFloat()));
+}
+
+
+
+/*---------Incrementor and Decrmentor operator overload-------*/
 
 
 Fixed		Fixed::operator ++ (int) {
-	Fixed	temp(*this);
+	Fixed	tempInstance(*this);
 
 	this->_FixedPointValue++;
-	return (temp);
+	return (tempInstance);
 }
 
-Fixed&		Fixed::operator ++ () {
+Fixed &		Fixed::operator ++() {
 	++_FixedPointValue;
 	return (*this);
 }
 
 Fixed		Fixed::operator -- (int) {
-	Fixed	temp(*this);
+	Fixed	tempInstance(*this);
 
 	this->_FixedPointValue--;
-	return (temp);
+	return(tempInstance);
 }
 
-Fixed&		Fixed::operator -- () {
+Fixed &		Fixed::operator -- () {
 	--_FixedPointValue;
 	return (*this);
 }
+
+
+
+/*------------OStream operator overload--------------*/
+
+
 std::ostream& operator<<(std::ostream &os, Fixed const & rhs) {
 	os << rhs.toFloat();
 	return os;
-}
-
-
-Fixed& Fixed::min(Fixed const &firstNumber, Fixed const &seconNumber) {
-	const Fixed *tempPtr;
-
-	if (firstNumber < seconNumber)
-		tempPtr = &firstNumber;
-	else
-		tempPtr = &seconNumber;
-	return (Fixed&)(*tempPtr);
-}
-
-Fixed& Fixed::max(Fixed const &firstNumber, Fixed const &seconNumber) {
-	const Fixed *tempPtr;
-
-	if (firstNumber > seconNumber)
-		tempPtr = &firstNumber;
-	else
-		tempPtr = &seconNumber;
-	return (Fixed&)(*tempPtr);
-}
-
-Fixed& Fixed::min(Fixed &firstNumber, Fixed &seconNumber) {
-	if (firstNumber < seconNumber)
-		return (firstNumber);
-	return (seconNumber);
-}
-
-Fixed& Fixed::max(Fixed &firstNumber, Fixed &seconNumber) {
-	if (firstNumber > seconNumber)
-		return (firstNumber);
-	return (seconNumber);
 }

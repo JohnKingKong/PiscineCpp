@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/09 18:16:25 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/12 15:24:52 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,22 @@ class Fixed {
 
 		Fixed& operator = (Fixed const & rhs);
 
-		bool		operator > (Fixed const & rhs);
-		bool		operator < (Fixed const & rhs);
-		bool		operator >= (Fixed const & rhs);
-		bool		operator <= (Fixed const & rhs);
-		bool		operator == (Fixed const & rhs);
-		bool		operator != (Fixed const & rhs);
+		bool		operator > (Fixed const & rhs) const;
+		bool		operator < (Fixed const & rhs) const;
+		bool		operator >= (Fixed const & rhs) const;
+		bool		operator <= (Fixed const & rhs) const;
+		bool		operator == (Fixed const & rhs) const;
+		bool		operator != (Fixed const & rhs) const;
 
-		Fixed&		operator + (Fixed const & rhs);
-		Fixed&		operator - (Fixed const & rhs);
-		Fixed&		operator * (Fixed const & rhs);
-		Fixed&		operator / (Fixed const & rhs);
+		Fixed		operator + (Fixed const & rhs) const;
+		Fixed		operator - (Fixed const & rhs) const;
+		Fixed		operator * (Fixed const & rhs) const;
+		Fixed		operator / (Fixed const & rhs) const;
 
 		Fixed		operator ++ (int);
 		Fixed&		operator ++ ();
 		Fixed		operator -- (int);
-		Fixed		operator -- ();
+		Fixed&		operator -- ();
 
 /*----------------Member Functions----------------------*/
 
@@ -58,10 +58,10 @@ class Fixed {
 
 /*--------------Non Member Function-------------------*/
 
-		static Fixed&		min(Fixed const &firstNumber, Fixed const &seconNumber);
-		static Fixed&		min(Fixed &firstNumber, Fixed $seconNumber);
-		static Fixed&		max(Fixed const &firstNumber, Fixed const &seconNumber);
-		static Fixed&		max(Fixed &firstNumber, Fixed $seconNumber);
+		static Fixed&		min(Fixed const &firstNumber, Fixed const &secondNumber);
+		static Fixed&		min(Fixed &firstNumber, Fixed &secondNumber);
+		static Fixed&		max(Fixed const &firstNumber, Fixed const &secondNumber);
+		static Fixed&		max(Fixed &firstNumber, Fixed &secondNumber);
 
 	private:
 
