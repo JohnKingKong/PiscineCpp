@@ -11,13 +11,15 @@ echo "
 
 
 $1::$1(){}
+
 $1::$1(const $1& other){
 	*this = other;
 }
+
 $1::~$1(){}
 
 $1& $1::operator=($1 const & rhs){
-	$1::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	$1::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
@@ -50,13 +52,15 @@ echo "
 
 
 $2::$2(){}
+
 $2::$2(const $2& other){
 	*this = other;
 }
+
 $2::~$2(){}
 
 $2& $2::operator=($2 const & rhs){
-	$2::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	$2::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
@@ -88,13 +92,15 @@ echo "
 
 
 $3::$3(){}
+
 $3::$3(const $3& other){
 	*this = other;
 }
+
 $3::~$3(){}
 
 $3& $3::operator=($3 const & rhs){
-	$3::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	$3::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
@@ -126,13 +132,15 @@ echo "
 
 
 $4::$4(){}
+
 $4::$4(const $4& other){
 	*this = other;
 }
+
 $4::~$4(){}
 
 $4& $4::operator=($4 const & rhs){
-	$4::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	$4::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
@@ -164,13 +172,15 @@ echo "
 
 
 $5::$5(){}
+
 $5::$5(const $5& other){
 	*this = other;
 }
+
 $5::~$5(){}
 
 $5& $5::operator=($5 const & rhs){
-	$5::<CHANGE_FUNC_NAME>(e.<CHANGE_FUNC_NAME>());
+	$5::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
 	return *this;
 }
 
