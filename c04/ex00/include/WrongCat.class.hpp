@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.class.hpp                              :+:      :+:    :+:   */
+/*   WrongCat.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 12:59:47 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 17:14:41 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/11/15 17:29:48 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include "ScavTrap.class.hpp"
-#include "FragTrap.class.hpp"
+#include "WrongAnimal.class.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class WrongCat : public WrongAnimal {
 	public:
 
-		DiamondTrap();
-		DiamondTrap(const DiamondTrap& other);
-		DiamondTrap(const std::string& name);
-		virtual ~DiamondTrap();
+		WrongCat();
+		WrongCat(const WrongCat& other);
+		~WrongCat();
 
-		DiamondTrap& operator=(DiamondTrap const & rhs);
-
-		void		whoAmI();
-
-		// virtual void		attack(const std::string& target);
+		WrongCat& operator=(WrongCat const & rhs);
 
 	private:
-		std::string	name;
+
 };

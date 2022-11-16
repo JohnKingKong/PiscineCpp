@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.class.hpp                              :+:      :+:    :+:   */
+/*   Dog.class.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 12:59:47 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/11/15 18:25:37 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include "ScavTrap.class.hpp"
-#include "FragTrap.class.hpp"
+#include "A_Animal.class.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class Dog : public A_Animal {
 	public:
 
-		DiamondTrap();
-		DiamondTrap(const DiamondTrap& other);
-		DiamondTrap(const std::string& name);
-		virtual ~DiamondTrap();
+		Dog();
+		Dog(std::string type);
+		Dog(const Dog& other);
+		virtual ~Dog();
 
-		DiamondTrap& operator=(DiamondTrap const & rhs);
+		Dog& operator=(Dog const & rhs);
 
-		void		whoAmI();
-
-		// virtual void		attack(const std::string& target);
+		virtual void		makeSound();
 
 	private:
-		std::string	name;
+		Brain*		brain;
 };

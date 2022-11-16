@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.class.hpp                              :+:      :+:    :+:   */
+/*   Brain.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 12:59:47 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 18:01:01 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/11/15 18:34:51 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
-#include "ScavTrap.class.hpp"
-#include "FragTrap.class.hpp"
 
-class DiamondTrap : public FragTrap, public ScavTrap {
+class Brain {
 	public:
 
-		DiamondTrap();
-		DiamondTrap(const DiamondTrap& other);
-		DiamondTrap(const std::string& name);
-		virtual ~DiamondTrap();
+		Brain();
+		Brain(const Brain& other);
+		~Brain();
 
-		DiamondTrap& operator=(DiamondTrap const & rhs);
+		Brain& operator=(Brain const & rhs);
 
-		void		whoAmI();
+		std::string		ideas[100];
 
-		// virtual void		attack(const std::string& target);
+		void		setIdea(int ideaPosition, std::string idea);
+		std::string	getIdea(int ideaPosition) const;
+
+		void		populateIdeas();
 
 	private:
-		std::string	name;
+
 };
