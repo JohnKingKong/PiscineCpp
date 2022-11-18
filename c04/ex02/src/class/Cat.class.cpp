@@ -1,45 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.class.cpp                                      :+:      :+:    :+:   */
+/*   Cat.class.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:13:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:50:20 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 13:13:41 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/11/15 18:26:18 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.class.hpp"
+#include "Cat.class.hpp"
 
 
-Dog::Dog() : Animal() {
-	setType("Dog");
+Cat::Cat() : A_Animal() {
+	setType("Cat");
 	brain = new Brain();
-	std::cout << "Dog constructor called (witn no param)" << std::endl;
+	std::cout << "Cat constructor called(with no params)" << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type) {
+Cat::Cat(std::string type) : A_Animal(type) {
 	setType(type);
-	std::cout << "Dog constructor called (with type as param)" << std::endl;
+	std::cout << "Cat constructor called (with no params)" << std::endl;
 }
 
-Dog::Dog(const Dog& other)  : Animal() {
+Cat::Cat(const Cat& other) : A_Animal() {
 	*this = other;
 }
 
-Dog::~Dog(){
+Cat::~Cat(){
 	delete(brain);
-	std::cout << "Dog destructor called" << std::endl;
+	std::cout << "Cat destructor called" << std::endl;
 }
 
-Dog& Dog::operator=(Dog const & rhs){
-	Dog::setType(rhs.getType());
+Cat& Cat::operator=(Cat const & rhs){
+	Cat::setType(rhs.getType());
 	return *this;
 }
 
-void		Dog::makeSound() {
-	std::cout << "WOOOOOOOF WOOOOOF ESTI" << std::endl;
+void	Cat::makeSound() {
+	std::cout << "MIAOU MEOW MOUUU" << std::endl;
 }
 
 

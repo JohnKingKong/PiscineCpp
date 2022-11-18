@@ -6,25 +6,25 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:13:41 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 18:26:18 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:50:12 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.class.hpp"
 
 
-Cat::Cat() : A_Animal() {
+Cat::Cat() : Animal() {
 	setType("Cat");
 	brain = new Brain();
 	std::cout << "Cat constructor called(with no params)" << std::endl;
 }
 
-Cat::Cat(std::string type) : A_Animal(type) {
+Cat::Cat(std::string type) : Animal(type) {
 	setType(type);
 	std::cout << "Cat constructor called (with no params)" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : A_Animal() {
+Cat::Cat(const Cat& other) : Animal() {
 	*this = other;
 }
 

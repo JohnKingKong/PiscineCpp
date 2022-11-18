@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.class.hpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:48:49 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 18:01:01 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/11/16 12:55:04 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Brain.class.hpp"
+#include "A_Animal.class.hpp"
+#include "Cat.class.hpp"
+#include "Dog.class.hpp"
 
-#include "Animal.class.hpp"
+int main()
+{
+	A_Animal *animal[10];
+	A_Animal test("Snake");
 
-class Cat : public Animal {
-	public:
-
-		Cat();
-		Cat(std::string type);
-		Cat(const Cat& other);
-		virtual ~Cat();
-
-		Cat& operator=(Cat const & rhs);
-
-		virtual void		makeSound();
-
-	private:
-		Brain*		brain;
-};
+	for (int i = 0; i < 5; i++)
+		animal[i] = new Cat;
+	for (int i = 5; i < 10; ++i)
+		animal[i] = new Dog;
+	for (int i = 0; i < 10; ++i)
+		animal[i]->makeSound();
+	for (int i = 0; i < 10; i++)
+		delete(animal[i]);
+}

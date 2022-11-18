@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.class.hpp                                      :+:      :+:    :+:   */
+/*   A_Animal.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:48:49 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:48:11 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Animal.class.hpp"
+#include <iostream>
+#include "Brain.class.hpp"
 
-class Cat : public Animal {
+class Animal {
 	public:
 
-		Cat();
-		Cat(std::string type);
-		Cat(const Cat& other);
-		virtual ~Cat();
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal& other);
+		virtual ~Animal();
 
-		Cat& operator=(Cat const & rhs);
+		Animal& operator=(Animal const & rhs);
+
+		void			setType(std::string type);
+		std::string		getType() const;
 
 		virtual void		makeSound();
 
 	private:
-		Brain*		brain;
+
+	protected:
+		std::string type;
+
 };

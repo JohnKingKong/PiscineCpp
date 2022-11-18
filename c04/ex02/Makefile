@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/16 12:49:47 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/16 12:53:48 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ CLASS_DIR		= $(SRCS_DIR)class
 SRCS_FILES		=	Dog.class.cpp		\
 					Cat.class.cpp		\
 					Brain.class.cpp		\
-					Animal.class.cpp	\
+					A_Animal.class.cpp	\
 
 MAIN_FILES		=						\
 					main.cpp			\
@@ -71,7 +71,7 @@ CLASS_FILES		=						\
 HEADERS_FILES	=	Dog.class.hpp		\
 					Cat.class.hpp		\
 					Brain.class.hpp		\
-					Animal.class.hpp	\
+					A_Animal.class.hpp	\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##

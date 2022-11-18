@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/12 15:28:50 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/16 14:03:58 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,9 +161,9 @@ Fixed		Fixed::operator / (Fixed const & rhs) const {
 
 
 Fixed		Fixed::operator ++ (int) {
-	Fixed	tempInstance(*this);
+	Fixed	tempInstance = *this;
 
-	this->_FixedPointValue++;
+	tempInstance._FixedPointValue++;
 	return (tempInstance);
 }
 

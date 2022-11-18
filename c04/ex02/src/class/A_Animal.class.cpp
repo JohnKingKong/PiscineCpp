@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 17:31:49 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/16 12:53:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,4 @@ void			A_Animal::setType(std::string type) {
 
 std::string		A_Animal::getType() const {
 	return (this->type);
-}
-
-void			A_Animal::makeSound() {
-	std::cout << "DEFAULT SOUND INCOMING" << std::endl;
 }

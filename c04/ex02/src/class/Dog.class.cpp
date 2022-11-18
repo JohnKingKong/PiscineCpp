@@ -6,25 +6,25 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:13:46 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:50:20 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/15 18:26:44 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.class.hpp"
 
 
-Dog::Dog() : Animal() {
+Dog::Dog() : A_Animal() {
 	setType("Dog");
 	brain = new Brain();
 	std::cout << "Dog constructor called (witn no param)" << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type) {
+Dog::Dog(std::string type) : A_Animal(type) {
 	setType(type);
 	std::cout << "Dog constructor called (with type as param)" << std::endl;
 }
 
-Dog::Dog(const Dog& other)  : Animal() {
+Dog::Dog(const Dog& other)  : A_Animal() {
 	*this = other;
 }
 
