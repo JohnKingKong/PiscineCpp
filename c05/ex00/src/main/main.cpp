@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 13:50:52 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/18 14:26:20 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main() {
 		std::cout << green << "bureaucrat name = " << Paul.getName() << ", and grade = " << Paul.getGrade() << std::endl << reset;
 		std::cout << cyan << "Lowering his grade using decrement function" << reset << std::endl;
 		Paul.decrementGrade();
-		std::cout << green << "bureaucrat name = " << Paul.getName() << ", and grade = " << Paul.getGrade() << reset << std::endl;
+		std::cout << green << "Bureaucrat name = " << Paul.getName() << ", and grade = " << Paul.getGrade() << reset << std::endl;
 		std::cout << cyan << "Trying to raise his grade(two times so its over the limit) using increment function" << reset << std::endl;
 		Paul.incrementGrade();
 		Paul.incrementGrade();
