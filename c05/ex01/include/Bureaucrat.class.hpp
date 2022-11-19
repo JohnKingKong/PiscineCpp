@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 16:00:40 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 13:57:43 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ class Bureaucrat {
 		Bureaucrat& operator=(Bureaucrat const & rhs);
 		Bureaucrat& operator++();
 		Bureaucrat& operator--();
+		bool		operator<=(unsigned int const & rhs);
+		bool		operator<(unsigned int const & rhs);
+		bool		operator>=(unsigned int const & rhs);
+		bool		operator>(unsigned int const & rhs);
 
 
 		class GradeTooHighException : public std::exception {
@@ -41,13 +45,17 @@ class Bureaucrat {
 			public : 
 			virtual const char* what() const throw();
 		};
+		class FormAlreadySignedException : public std::exception {
+			public :
+			virtual const char* what() const throw();
+		};
 
 
 		std::string			getName() const;
 		unsigned int		getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
-		void				signForm(Form form);
+		void				signForm(Form *form);
 
 
 	private:
@@ -56,7 +64,7 @@ class Bureaucrat {
 		unsigned int		_grade;
 
 
-		void		_verifyGrade(unsigned int grade);
+		void		_verifyGrade();
 		void		_setGrade(unsigned int grade);
 
 };

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 16:33:39 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 14:00:32 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,41 @@
 /*---------Constructors and Destructors---------*/
 
 
-Form::Form() : _name("DEFAULT"), 
-		_gradeToSign(150), 
-		_gradeToUse(150) {
-			_setSignedStatus(false);
+Form::Form() :	_name("DEFAULT"), 
+				_gradeToSign(150), 
+				_gradeToUse(150) {
+
+	_verifyGradeToUse();
+	_verifyGradeToSign();
+	_setSignedStatus(false);
+	std::cout << purple << "Default form constructor(no params) called" << reset << std::endl;
 }
 
 Form::Form(std::string const name,
 	unsigned int const gradeToSign,
 	unsigned int const gradeToUse) :
-		_name(name),
-		_gradeToSign(gradeToSign),
-		_gradeToUse(gradeToUse) {
-			_setSignedStatus(false);
-		}
+				_name(name),
+				_gradeToSign(gradeToSign),
+				_gradeToUse(gradeToUse) {
+
+	_verifyGradeToUse();
+	_verifyGradeToSign();
+	_setSignedStatus(false);
+	std::cout << purple << "Default form constructor(with params) called" << reset << std::endl;
+}
 
 Form::Form(const Form& other) : 
-		_name(other.getName()),
-		_gradeToSign(other.getGradeToSign()),
-		_gradeToUse(other.getGradeToUse()) {
+				_name(other.getName()),
+				_gradeToSign(other.getGradeToSign()),
+				_gradeToUse(other.getGradeToUse()) {
+
+	_verifyGradeToUse();
+	_verifyGradeToSign();
 	*this = other;
+	std::cout << purple << "Copy form constructor called" << reset << std::endl;
 }
 
 Form::~Form() {
-
 }
 
 
@@ -91,7 +102,7 @@ void			Form::beSigned(Bureaucrat bureaucrat) {
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		_setSignedStatus(true);
 	else
-		throw(Form::GradeTooLowException());
+		throw(GradeTooLowException());
 }
 
 
@@ -113,7 +124,16 @@ void		Form::_setSignedStatus(bool signedStatus) {
 	this->_signedForm = signedStatus;
 }
 
-void		Form::_verifyGradeToUse(unsigned int grade) {
-	if (grade <= this->_gradeToUse)
-		
+void		Form::_verifyGradeToUse() {
+	if ((int)this->_gradeToUse >= 151)
+		throw(GradeTooLowException());
+	if ((int)this->_gradeToUse <= 0)
+		throw(GradeTooHighException());
+}
+
+void		Form::_verifyGradeToSign() {
+	if ((int)this->_gradeToSign >= 151)
+		throw(Form::GradeTooLowException());
+	if ((int)this->_gradeToSign <= 0)
+		throw(GradeTooHighException());
 }

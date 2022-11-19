@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 16:00:49 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 14:00:21 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@
 
 Bureaucrat::Bureaucrat() : _name("DEFAULT") {
 	_setGrade(150);
-	std::cout << purple << "Default constructor(no params) called" << reset << std::endl;
+	std::cout << purple << "Default bureaucrat constructor(no params) called" << reset << std::endl;
 }
 
 Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name) {
-	_verifyGrade(grade);
 	_setGrade(grade);
-	std::cout << purple << "Default constructor(with params) called" << reset << std::endl;
+	_verifyGrade();
+	std::cout << purple << "Default bureaucrat constructor(with params) called" << reset << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other){
 	*this = other;
-	std::cout << purple << "Copy constructor called" << reset << std::endl;
+	_verifyGrade();
+	std::cout << purple << "Copy bureaucrat constructor called" << reset << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout  << yellow << "Default destructor called" << reset << std::endl;;
 }
 
 
@@ -43,21 +43,45 @@ Bureaucrat::~Bureaucrat(){
 /*--------------Operators overload--------------*/
 
 
-Bureaucrat& Bureaucrat::operator = (Bureaucrat const & rhs){
+Bureaucrat&	Bureaucrat::operator = (Bureaucrat const & rhs){
 	Bureaucrat::_setGrade(rhs.getGrade());
 	return *this;
 }
 
-Bureaucrat& Bureaucrat::operator ++ () {
-	_verifyGrade(this->_grade - 1);
+Bureaucrat&	Bureaucrat::operator ++ () {
 	--_grade;
+	_verifyGrade();
 	return (*this);
 }
 
-Bureaucrat& Bureaucrat::operator -- () {
-	_verifyGrade(this->_grade + 1);
+Bureaucrat&	Bureaucrat::operator -- () {
 	++_grade;
+	_verifyGrade();
 	return (*this);
+}
+
+bool		Bureaucrat::operator <= (unsigned int const & rhs) {
+	if ((int)getGrade() >= (int)rhs)
+		return true;
+	return false;
+}
+
+bool		Bureaucrat::operator >= (unsigned int const & rhs) {
+	if ((int)getGrade() <= (int)rhs)
+		return true;
+	return false;
+}
+
+bool		Bureaucrat::operator < (unsigned int const & rhs) {
+	if ((int)getGrade() > (int)rhs)
+		return true;
+	return false;
+}
+
+bool		Bureaucrat::operator > (unsigned int const & rhs) {
+	if ((int)getGrade() < (int)rhs)
+		return true;
+	return false;
 }
 
 
@@ -89,8 +113,19 @@ void			Bureaucrat::decrementGrade() {
 	--(*this);
 }
 
-void			Bureaucrat::signForm(Form form) {
-	std::cout << form << std::endl;
+void			Bureaucrat::signForm(Form *form) {
+	if (form->getSignedStatus() == true) {
+		std::cout << "\e[0;31m" << this->getName() << " couldn't sign " << form->getName() << " because: ";
+		throw(FormAlreadySignedException());
+	}
+	if (*this < form->getGradeToSign()) {
+		std::cout << "\e[0;31m" << this->getName() << " couldn't sign \"" << form->getName() << "\" because: ";
+		throw(Form::GradeTooHighException());
+	}
+	else {
+		form->beSigned(*this);
+		std::cout << green << this->getName() << " signed \"" << form->getName() << "\"" << std::endl << reset;
+	}
 }
 
 
@@ -98,22 +133,25 @@ void			Bureaucrat::signForm(Form form) {
 
 
 const char*		Bureaucrat::GradeTooLowException::what() const throw() {
-	return "\e[0;31mNice try, but the grade is too damn low!!!\e[0m";
+	return "\e[0;31mNice try, but the grade is too damn low on that bureaucrat!!!\e[0m";
 }
 
 const char*		Bureaucrat::GradeTooHighException::what() const throw() {
-	return "\e[0;31mNice try, but the grade is too damn high!!!\e[0m";
+	return "\e[0;31mNice try, but the grade is too damn high on that bureaucrat!!!\e[0m";
 }
 
+const char*		Bureaucrat::FormAlreadySignedException::what() const throw() {
+	return "This form is already signed!!!";
+}
 
 
 /*-----------Private member functions-----------*/
 
 
-void	Bureaucrat::_verifyGrade(unsigned int grade) {
-	if (grade >= 151)
+void	Bureaucrat::_verifyGrade() {
+	if (*this <= 151)
 		throw GradeTooLowException();
-	else if (grade <= 0)
+	else if (*this >= 0)
 		throw GradeTooHighException();
 }
 

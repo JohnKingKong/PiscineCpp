@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 16:22:01 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 12:09:48 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ class Form {
 		bool				_signedForm;
 
 		void				_setSignedStatus(bool signedStatus);
-		void				_verifyGradeToSign(unsigned int grade);
-		void				_verifyGradeToUse(unsigned int grade);
+		void				_verifyGradeToSign();
+		void				_verifyGradeToUse();
 };
 		std::ostream& operator << (std::ostream &os, Form const & rhs);
