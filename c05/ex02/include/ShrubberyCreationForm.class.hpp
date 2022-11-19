@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShruberryCreationForm.class.hpp                    :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.class.hpp                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 14:06:29 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 15:15:14 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 16:38:38 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class ShruberryCreationForm {
+#include "AForm.class.hpp"
+
+class ShrubberyCreationForm : public AForm {
 	public:
 
-		ShruberryCreationForm();
-		ShruberryCreationForm(const ShruberryCreationForm& other);
-		~ShruberryCreationForm();
+		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationForm(const ShrubberyCreationForm& other);
+		virtual ~ShrubberyCreationForm();
 
-		ShruberryCreationForm& operator=(ShruberryCreationForm const & rhs);
+		ShrubberyCreationForm& operator=(ShrubberyCreationForm const & rhs);
+
+		virtual void	execute(Bureaucrat const & executor) const;
 
 	private:
+
+		ShrubberyCreationForm();
+
+		std::string _target;
 
 };

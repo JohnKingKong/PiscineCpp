@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 14:00:09 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/19 16:51:17 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int main() {
 		std::cout << ", signform(copy constructor form), grade too low to sign" << reset << std::endl;
 
 		Form		Form3("Demande de Permis", 10, 69);
-		Bureaucrat	Gaston("Gaston", 42);
+		Bureaucrat	Gaston("Gaston", 0);
 
 		Gaston.signForm(&Form3);
 	}

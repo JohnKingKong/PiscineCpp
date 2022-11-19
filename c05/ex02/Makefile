@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/09 14:49:09 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/19 15:48:04 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= Bureaucrat
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -58,14 +58,22 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=						\
+SRCS_FILES		=	Bureaucrat.class.cpp\
+					AForm.class.cpp		\
+					ShrubberyCreationForm.class.cpp\
+					RobotomyRequestForm.class.cpp\
+					PresidentialPardonForm.class.cpp\
 
 MAIN_FILES		=						\
 					main.cpp			\
 
 CLASS_FILES		=						\
 
-HEADERS_FILES	=						\
+HEADERS_FILES	=	Bureaucrat.class.hpp\
+					AForm.class.hpp		\
+					ShrubberyCreationForm.class.hpp\
+					RobotomyRequestForm.class.hpp\
+					PresidentialPardonForm.class.hpp\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
