@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
+#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/12 15:57:19 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/21 14:54:33 by anonymous        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= clapTrap
+NAME 			= Bureaucrat
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -58,14 +58,24 @@ MAIN_DIR		= $(SRCS_DIR)main
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=	ClapTrap.class.cpp	\
+SRCS_FILES		=	Bureaucrat.class.cpp\
+					AForm.class.cpp		\
+					ShrubberyCreationForm.class.cpp\
+					RobotomyRequestForm.class.cpp\
+					PresidentialPardonForm.class.cpp\
+					Intern.class.cpp	\
 
 MAIN_FILES		=						\
 					main.cpp			\
 
 CLASS_FILES		=						\
 
-HEADERS_FILES	=	ClapTrap.class.hpp	\
+HEADERS_FILES	=	Bureaucrat.class.hpp\
+					AForm.class.hpp		\
+					ShrubberyCreationForm.class.hpp\
+					RobotomyRequestForm.class.hpp\
+					PresidentialPardonForm.class.hpp\
+					Intern.class.hpp	\
 
 
 ## ----- ADDPREFIX TO FILES ----- ##
