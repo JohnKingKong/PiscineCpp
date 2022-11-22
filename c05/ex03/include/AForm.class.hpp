@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/21 13:05:55 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/11/22 12:00:17 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ class AForm {
 		};
 
 		class FormNotSignedException : public std::exception {
+			public :
+				virtual const char* what() const throw();
+		};
+		class FormNameInvalidException : public std::exception {
 			public :
 				virtual const char* what() const throw();
 		};

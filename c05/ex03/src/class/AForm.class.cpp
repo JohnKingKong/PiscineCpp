@@ -6,7 +6,7 @@
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/21 13:05:44 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/11/22 12:01:58 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,10 @@ const char*		AForm::GradeTooHighException::what() const throw() {
 
 const char*		AForm::FormNotSignedException::what() const throw() {
 	return"\e[0;31mThis form is not signed, you can't use it!!!\e[0m";
+}
+
+const char*		AForm::FormNameInvalidException::what() const throw() {
+	return "\e[0;31mThe name provided for the form isn't a recognised form name!!!\e[0m";
 }
 
 /*-----------Private member functions-----------*/
