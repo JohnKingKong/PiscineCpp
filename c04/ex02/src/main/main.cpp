@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:01:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:55:04 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:59:36 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 int main()
 {
 	A_Animal *animal[10];
-	A_Animal test("Snake");
 
 	for (int i = 0; i < 5; i++)
 		animal[i] = new Cat;
