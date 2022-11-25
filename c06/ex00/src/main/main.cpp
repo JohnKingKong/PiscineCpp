@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:12:58 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/24 21:14:25 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/11/25 13:26:04 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,17 @@
 int main()
 {
 	try {
-		Conversion convert1("76.36");
+		Conversion convert1("69");
+		Conversion convert2("0");
+		Conversion convert3("-inff");
+		Conversion convert4("69.69f");
+		// Conversion convert5("dsadas");
 
-		char a = (convert1);
-		double b = (convert1);
-		float c = (convert1);
-		int d = (convert1);
-
-		std::cout << "a = " << a << std::endl;
-		std::cout << "b = " << b << std::endl;
-		std::cout << "c = " << c << std::endl;
-		std::cout << "d = " << d << std::endl;
+		std::cout << convert1 << std::endl;
+		std::cout << convert2 << std::endl;
+		std::cout << convert3 << std::endl;
+		std::cout << convert4 << std::endl;
+		// std::cout << convert5 << std::endl;
 
 	}
 	catch(const std::exception& exception){

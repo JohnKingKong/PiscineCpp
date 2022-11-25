@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Conversion.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
+/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:12:58 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/24 20:38:10 by anonymous        ###   ########.fr       */
+/*   Updated: 2022/11/25 12:05:41 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,37 +32,18 @@ class Conversion {
 
 		Conversion& operator=(Conversion const & rhs);
 
-		operator int();
-		operator double();
-		operator float();
-		operator char();
+		operator int() const;
+		operator double() const;
+		operator float() const;
+		operator char() const;
 
 		std::string		getInput();
 
+
 	private:
-		enum Type {
-			CHAR = 0,
-			DOUBLE = 1,
-			FLOAT = 2,
-			INT = 3
-		};
-
 		std::string		_input;
-		// char			_char;
-		// int			_int;
-		// double		_double;
-		// float		_float;
-		int				_type;
-		bool			_error;
-
 		void			_checkInput();
-		// void			_setType();
-		// void			_setChar(char _char);
-		// void			_setInt(int _int);
-		// void			_setDouble(double _double);
-		// void			_setFloat(float _float);
 		void			_setInput(std::string _input);
-		// bool			_checkPseudoLiteral();
-
-
 };
+
+std::ostream&	operator<<(std::ostream & os, Conversion const & rhs);
