@@ -1,25 +1,18 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Exceptions.class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 12:37:47 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/09 12:41:19 by anonymous        ###   ########.fr       */
+/*   Created: 2022/11/23 16:53:24 by anonymous         #+#    #+#             */
+/*   Updated: 2022/11/23 17:07:05 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Fixed.class.hpp"
+#include "Exceptions.class.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed b;
-	Fixed c;
 
-	c = b;
-
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
+const char			*Exceptions::WrongInputException::what() const throw() {
+		return "\e[0;31mThe converter takes a string as a param, dont forget the \"\" and that its not empty\e[0m";
 }

@@ -1,25 +1,25 @@
- /* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Exceptions.class.hpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 12:37:47 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/09 12:41:19 by anonymous        ###   ########.fr       */
+/*   Created: 2022/11/23 16:53:39 by anonymous         #+#    #+#             */
+/*   Updated: 2022/11/23 17:01:33 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Fixed.class.hpp"
+#pragma once
 
-int main( void ) {
-	Fixed a;
-	Fixed b;
-	Fixed c;
+#include <iostream>
+#include "Colors.hpp"
 
-	c = b;
+class Exceptions {
+	public:
+		class WrongInputException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+	};
 
-	std::cout << a.getRawBits() << std::endl;
-	std::cout << b.getRawBits() << std::endl;
-	std::cout << c.getRawBits() << std::endl;
-}
+};
