@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:12:58 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/25 12:05:41 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:55:22 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <limits>
-#include <iomanip>
+#include <stdexcept>
 #include "Colors.hpp" 
 #include "Exceptions.class.hpp"
 

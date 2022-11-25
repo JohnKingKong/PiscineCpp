@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:12:58 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/25 13:32:19 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/25 14:47:32 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Conversion::~Conversion() {
 
 Conversion& Conversion::operator=(Conversion const & rhs) {
 	_setInput(rhs._input);
-	return *this;
+return *this;
 }
 
 
@@ -54,76 +54,89 @@ Conversion& Conversion::operator=(Conversion const & rhs) {
 
 Conversion::operator int() const {
 	int		_int;
-	char*	cString;
 
-	std::cout << std::fixed;
-	std::cout.precision(2);
 	try {
-		_int = (std::strtol(this->_input.c_str(), &cString, 10));
+		_int = std::stoi(this->_input);
 	}
 	catch (std::invalid_argument & invalidArgument) {
-		std::cout<<"oho invalid argument for int" << std::endl;
-		_int = 0;
+		std::cout << "Int : Impossible" << std::endl;
+		return _int;
 	}
 	catch (std::out_of_range & outOfRange){
-		std::cout<<"oho out of range for int"<<std::endl;
-		_int = 0;
+		std::cout << "Int : Out of range" << std::endl;
+		return _int;
 	}
-	return static_cast<int>(_int);
+	std::cout << "Int : " << _int << std::endl;
+	return (_int);
 }
 
 Conversion::operator double() const {
 	double	_double;
-	char*	cString;
 
 	std::cout << std::fixed;
 	std::cout.precision(2);
 	try {
-		_double = (std::strtod(this->_input.c_str(), &cString));
+		_double = std::stod(this->_input);
 	}
 	catch (std::out_of_range & outOfRange){
-		std::cout<<"oho out of range for double"<<std::endl;
-		_double = 0;
+		std::cout << "Double : Out of Range" << std::endl;
+		return _double;
 	}
 	catch (std::invalid_argument & invalidArgument) {
-		std::cout<<"oho invalid argument for double" << std::endl;
-		_double = 0;
+		std::cout << "Double : Impossible" << std::endl;
+		return _double;
 	}
-	return static_cast<double>(_double);
+	std::cout << "Double : " << _double << std::endl;
+	return (_double);
 }
 
 Conversion::operator float() const {
 	float	_float;
-	char	*cString;
 
 	std::cout << std::fixed;
-	std::cout.precision(	2);
+	std::cout.precision(2);
 	try {
-		_float = (std::strtof(this->_input.c_str(), &cString));
+		_float = std::stof(this->_input);
 	}
 	catch (std::out_of_range & outOfRange){
-		std::cout<<"oho out of range for float"<<std::endl;
-		_float = 0;
+		std::cout << "Float : Out of Range" << std::endl;
+		return _float;
 	}
 	catch (std::invalid_argument & invalidArgument) {
-		std::cout<<"oho invalid argument for float" << std::endl;
-	_float = 0;
+		std::cout << "Float : Impossible" << std::endl;
+		return _float;
 	}
-	return static_cast<float>(_float);
+	std::cout << "Float : " << _float << "f" << std::endl;
+	return (_float);
 }
 
 Conversion::operator char() const {
 	char	_char;
-	char*	cString;
 
+	if (this->_input.length() == 1)  {
+		try {
+			_char = std::stoi(this->_input);
+		}
+		catch (std::invalid_argument & invalidArgument) {
+			_char = static_cast<char>(this->_input[0]);
+		}
+	}
 
-	try {
-		_char = std::strtol(this->_input.c_str(), &cString, 10);
+	else {
+		try {
+			_char = std::stoi(this->_input);
+		}
+		catch (std::invalid_argument & invalidArgument) {
+			std::cout << "Char : Impossible" << std::endl;
+			return _char;
+		}
 	}
-	catch (std::invalid_argument & invalidArgument) {
-		_char = static_cast<char>(this->_input[0]);
-	}
-	return static_cast<char>(_char);
+
+	if (std::isprint(_char))
+		std::cout << "Char : " << _char << std::endl;
+	else
+		std::cout << "Char : Impossible" << std::endl;
+	return (_char);
 }
 
 
@@ -137,10 +150,8 @@ std::ostream& operator << (std::ostream &os, Conversion const & rhs) {
 	double	_double = rhs;
 	float	_float = rhs;
 
-	os << "char : " << _char << ";" << std::endl;
-	os << "int : " << _int << ";" << std::endl;
-	os << "double : " << _double << ";" << std::endl;
-	os << "float : " << _float << "f;" << std::endl;
+	if (_char && _int && _double && _float)
+		return os;
 	return os;
 }
 
