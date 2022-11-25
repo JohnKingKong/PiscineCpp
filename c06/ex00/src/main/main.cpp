@@ -6,28 +6,23 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 13:12:58 by anonymous         #+#    #+#             */
-/*   Updated: 2022/11/25 14:47:49 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:15:38 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Conversion.class.hpp"
 #include "Exceptions.class.hpp"
 
-int main()
+int main(int argc, char *argv[])
 {
+	if (argc != 2) {
+		std::cout << "You gotta put a value to convert" << std::endl;
+		return 0;
+	}
 	try {
-		Conversion convert1("69");
-		Conversion convert2("0");
-		Conversion convert3("-inff");
-		Conversion convert4("69.69f");
-		Conversion convert5("nanf");
+		Conversion convert1(argv[1]);
 
 		std::cout << convert1 << std::endl;
-		std::cout << convert2 << std::endl;
-		std::cout << convert3 << std::endl;
-		std::cout << convert4 << std::endl;
-		std::cout << convert5 << std::endl;
-
 	}
 	catch(const std::exception& exception){
 		std::cerr << exception.what() << std::endl;
