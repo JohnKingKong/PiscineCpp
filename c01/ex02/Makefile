@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/01 16:23:58 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/30 08:59:29 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= strPtrRef
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++

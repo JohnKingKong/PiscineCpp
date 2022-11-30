@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/08 16:26:51 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/11/30 09:01:42 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,8 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
-
+NAME 			= KarenHarl
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
 
