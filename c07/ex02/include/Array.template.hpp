@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.template.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 14:55:09 by anonymous         #+#    #+#             */
-/*   Updated: 2022/12/02 17:28:24 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/05 11:14:45 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,10 @@ class Array {
 		T				*getArray() const;
 		unsigned int	getSize() const;
 
+		class OutOfBoundAccessException : public std::exception {
+			public:
+				virtual const char* what() const throw();
+		};
 	private:
 		T				*_array;
 		unsigned int	_size;
