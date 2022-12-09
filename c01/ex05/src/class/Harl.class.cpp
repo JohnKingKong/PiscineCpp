@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:26:00 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/08 17:36:26 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:33:09 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 
 Harl::Harl(){
+	std::cout << "Default (no params) Constructor called" << std::endl;
 	Harl::op = 42;
 	Harl::functionPointer[0] = &Harl::debug;
 	Harl::functionPointer[1] = &Harl::info;
@@ -23,12 +24,17 @@ Harl::Harl(){
 	Harl::functionPointer[3] = &Harl::error;
 }
 
-Harl::Harl(const Harl&){}
+Harl::Harl(const Harl& other) {
+	*this = other;
+	std::cout << "Copy Constructor called" << std::endl;
+}
 
-Harl::~Harl(){}
+Harl::~Harl() {
+	std::cout << "Default Destructor called" << std::endl;
+}
 
-Harl& Harl::operator=(const Harl& e){
-	this->op = e.getValue();
+Harl& Harl::operator=(const Harl& rhs){
+	this->op = rhs.getValue();
 	return *this;
 }
 

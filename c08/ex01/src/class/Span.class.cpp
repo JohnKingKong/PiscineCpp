@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.class.cpp                                   :+:      :+:    :+:   */
+/*   Span.class.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 13:57:35 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/12/09 15:19:47 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/12/06 09:58:52 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/06 13:49:03 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Weapon.class.hpp"
+#include "Span.class.hpp"
 
-Weapon::Weapon(std::string type){
-	std::cout << "Weapon Constructor called" << std::endl;
-	setType(type);
+
+Span::Span(){}
+
+Span::Span(const Span& other){
+	*this = other;
 }
 
-Weapon::~Weapon(){
-	std::cout << "Weapon Destructor called" << std::endl;
+Span::~Span(){}
+
+Span& Span::operator=(Span const & rhs){
+	Span::<CHANGE_FUNC_NAME>(rhs.<CHANGE_FUNC_NAME>());
+	return *this;
 }
 
-std::string const &		Weapon::getType(){
-	return this->type;
-}
 
-void		Weapon::setType(std::string type){
-	this->type = type;
-}

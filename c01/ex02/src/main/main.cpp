@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 14:59:32 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/01 16:29:34 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:21:11 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int main() {
 	std::cout << cyan << "string = " << &brain << green << "    stringPTR = ";
 	std::cout << stringPTR << purple << "    stringREF = " << &stringREF;
 	std::cout << reset << std::endl << std::endl;
-
 
 	std::cout << cyan << "string = " << brain << green << "    stringPTR = ";
 	std::cout << *stringPTR << purple << "    stringREF = " << stringREF;

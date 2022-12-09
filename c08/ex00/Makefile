@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: anonymous <anonymous@student.42.fr>        +#+  +:+       +#+         #
+#    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/12/05 13:40:55 by anonymous        ###   ########.fr        #
+#    Updated: 2022/12/09 17:16:01 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= EasyFind
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++

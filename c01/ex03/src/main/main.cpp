@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:35:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/07 13:00:09 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:25:14 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int main()
 {
+	
 	Weapon club = Weapon("FUCKING HUGE CLUB");
 	HumanA	bob("bob", club);
 

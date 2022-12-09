@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/02 10:37:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/07 15:06:30 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:45:39 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ int main(int argc, char const *argv[]) {
 			} else
 				break;
 		}
-		outFileStream << tempStr << std::endl;
+		if (tempStr[0] != '\n')
+			outFileStream << tempStr << std::endl;
 	}
 	inFileStream.close();
 	outFileStream.close();

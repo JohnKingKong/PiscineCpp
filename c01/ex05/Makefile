@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/30 09:01:42 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/12/09 16:27:33 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ OBJ_DIR			= obj/
 
 INCLUDE_DIR		= include/
 
-BIN_DIR			= bin/
+# BIN_DIR			= bin/
 
 MAIN_DIR		= $(SRCS_DIR)main
 
@@ -121,17 +121,17 @@ GREY 			= \033[37m
 UNDERLINE 		= \033[4m
 NORMAL 			= \033[0m
 
-MK_BIN			= @ if [ ! -d "./bin" ]; then \
-					mkdir bin;\
-				fi
+# MK_BIN			= @ if [ ! -d "./bin" ]; then \
+# 					mkdir bin;\
+# 				fi
 
-IF_BIN			=@ if [ ! -d "./bin" ]; then \
-					$(CC) $(OBJS) -o $(NAME); \
-				fi
+# IF_BIN			=@ if [ ! -d "./bin" ]; then \
+# 					$(CC) $(OBJS) -o $(NAME); \
+# 				fi
 
-BIN_MOVE		=@ if [ -f "./$(NAME)" ]; then \
-					mv $(NAME) $(BIN_DIR)$(NAME); \
-				fi
+# BIN_MOVE		=@ if [ -f "./$(NAME)" ]; then \
+# 					mv $(NAME) $(BIN_DIR)$(NAME); \
+# 				fi
 
 
 #	Here you could add some rules to compile an other makefile
@@ -159,12 +159,7 @@ all: obj $(NAME)
 #	3) Call the compiler with his dependencies
 #		(.o files, library.a) with -o (output) name
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@ if [ -d "./$(BIN_DIR)" ]; then \
-		echo "make: Nothing to be done for \`all'."; \
-	fi
-	$(IF_BIN)
-	$(MK_BIN)
-	$(BIN_MOVE)
+	$(CC) $(OBJS) -o $(NAME)
 
 #	Create .o folder for easy clean
 obj:
@@ -200,7 +195,7 @@ clean:
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(BIN_DIR)
+	$(RM) $(NAME)
 #	Here don't forget to delete .a previously
 #	compiled in other dir/Makefile like libft
 #

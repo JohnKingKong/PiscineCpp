@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.class.cpp                                   :+:      :+:    :+:   */
+/*   Span.class.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/02 13:57:35 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/12/09 15:19:47 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/12/06 09:58:52 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/06 13:49:14 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/Weapon.class.hpp"
+#pragma once
 
-Weapon::Weapon(std::string type){
-	std::cout << "Weapon Constructor called" << std::endl;
-	setType(type);
-}
+class Span {
+	public:
 
-Weapon::~Weapon(){
-	std::cout << "Weapon Destructor called" << std::endl;
-}
+		Span();
+		Span(const Span& other);
+		~Span();
 
-std::string const &		Weapon::getType(){
-	return this->type;
-}
+		Span& operator=(Span const & rhs);
 
-void		Weapon::setType(std::string type){
-	this->type = type;
-}
+	private:
+
+};

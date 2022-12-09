@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/08 14:26:00 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/08 16:17:04 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/09 15:29:34 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ class Harl {
 	public:
 
 		Harl();
-		Harl(const Harl&);
+		Harl(const Harl& other);
 		~Harl();
 
-		Harl& operator=(const Harl& e);
+		Harl& operator=(const Harl& rhs);
 
 		int			op;
 
