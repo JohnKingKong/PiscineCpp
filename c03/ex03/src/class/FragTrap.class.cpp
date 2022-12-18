@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 14:05:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:22:16 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:11:51 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 
 FragTrap::FragTrap() : ClapTrap() {
-	setName("");
+	setName("Undefined");
 	hitPoints = HITPOINTS;
 	energyPoints = ENERGYPOINTS;
 	attackDamage = ATTACKDAMAGE;
-	std::cout << "FragTrap constructor called" << std::endl;
+	std::cout << "FragTrap constructor(no params) called" << std::endl;
 }
 
-FragTrap::FragTrap(std::string name) : ClapTrap(name){
+FragTrap::FragTrap(const std::string& name) : ClapTrap(name){
 	hitPoints = HITPOINTS;
 	energyPoints = ENERGYPOINTS;
 	attackDamage = ATTACKDAMAGE;

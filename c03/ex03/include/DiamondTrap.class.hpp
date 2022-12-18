@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/12/09 17:22:15 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:06:17 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class DiamondTrap : public FragTrap, public ScavTrap {
 		void		whoAmI();
 
 		// virtual void		attack(const std::string& target);
+
 
 	private:
 		std::string	name;

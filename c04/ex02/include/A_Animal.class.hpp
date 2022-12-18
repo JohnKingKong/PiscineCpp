@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 18:53:16 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:13:53 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class A_Animal {
 
 		A_Animal& operator=(A_Animal const & rhs);
 
-		void			setType(std::string type);
-		std::string		getType() const;
+		std::string			getType() const;
 
 		virtual void		makeSound() = 0;
 
 	private:
+		void				_setType(std::string type);
 
 	protected:
 		std::string type;

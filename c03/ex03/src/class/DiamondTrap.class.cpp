@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/12/09 17:19:54 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:12:59 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,15 @@ DiamondTrap::DiamondTrap() : ClapTrap() {
 	setEnergyPoints(ScavTrap::ENERGYPOINTS);
 	setAttackDamage(FragTrap::ATTACKDAMAGE);
 
-	std::cout << "DiamondTrap constructor called" << std::endl;
+	std::cout << "DiamondTrap constructor(no params) called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& other){
+DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other.name + "_clap_name") {
 	*this = other;
 }
 
-DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), name(name) {
+DiamondTrap::DiamondTrap(const std::string& name) : ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name) {
+	this->name = name;
 	setHitPoints(FragTrap::HITPOINTS);
 	setEnergyPoints(ScavTrap::ENERGYPOINTS);
 	setAttackDamage(FragTrap::ATTACKDAMAGE);
@@ -47,8 +48,7 @@ DiamondTrap& DiamondTrap::operator=(DiamondTrap const & rhs){
 	return *this;
 }
 
-
 void	DiamondTrap::whoAmI() {
-	std::cout << "My fucking name is " << ClapTrap::getName() << " or you can call me ";
-	std::cout << DiamondTrap::getName() << std::endl;
+	std::cout << "My fucking name is " << ClapTrap::name << " or you can call me ";
+	std::cout << DiamondTrap::name << std::endl;
 }

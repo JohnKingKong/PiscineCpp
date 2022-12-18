@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:01:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/25 14:59:36 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/17 11:35:13 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,15 @@ int main()
 		animal[i] = new Dog;
 	for (int i = 0; i < 10; ++i)
 		animal[i]->makeSound();
+
+	// A_Animal test("Snake");
+	// std::cout << test.getType() << std::endl;
+	// test.makeSound();
+
+	Cat *cat = new Cat;
+	cat->makeSound();
+	delete(cat);
+
 	for (int i = 0; i < 10; i++)
 		delete(animal[i]);
 }

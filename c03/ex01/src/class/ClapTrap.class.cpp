@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:56:22 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 13:35:25 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:25:45 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ void			ClapTrap::beRepaired(unsigned int amount) {
 	else if ((int)ClapTrap::getHitPoints() <= 0)
 		std::cout << ClapTrap::getName() << " does not have any hit points left.... ITS A DEAD PARROT" << std::endl;
 	else {
+		ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
 		ClapTrap::setHitPoints(ClapTrap::getHitPoints() + amount);
 		std::cout << ClapTrap::getName() << " has repaired himself for ";
 		std::cout << amount << " hit points" << std::endl;

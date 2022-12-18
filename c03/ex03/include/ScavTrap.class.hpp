@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A_Animal.class.hpp                                 :+:      :+:    :+:   */
+/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 17:26:12 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/14 11:46:12 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/13 12:19:38 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include "ClapTrap.class.hpp"
 
-class A_Animal {
+class ScavTrap : virtual public ClapTrap{
 	public:
 
-		A_Animal();
-		A_Animal(std::string type);
-		A_Animal(const A_Animal& other);
-		virtual ~A_Animal();
+		ScavTrap();
+		ScavTrap(const std::string& name);
+		ScavTrap(const ScavTrap& other);
+		virtual ~ScavTrap();
 
-		A_Animal& operator=(A_Animal const & rhs);
+		ScavTrap& operator=(ScavTrap const & rhs);
 
-		void			setType(std::string type);
-		std::string		getType() const;
+		virtual void	attack(const std::string& target);
 
-		virtual void		makeSound() = 0;
+		void			guardGate();
 
-	private:
-
-	protected:
-		std::string type;
-
+	protected :
+		static const unsigned int HITPOINTS = 100;
+		static const unsigned int ENERGYPOINTS = 50;
+		static const unsigned int ATTACKDAMAGE = 20;
 };

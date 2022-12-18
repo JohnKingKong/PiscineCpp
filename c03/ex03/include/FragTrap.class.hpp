@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.class.hpp                                 :+:      :+:    :+:   */
+/*   FragTrap.class.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 11:46:12 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:18:52 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/14 14:05:02 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/13 12:19:31 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,21 @@
 #include <iostream>
 #include "ClapTrap.class.hpp"
 
-class ScavTrap : virtual public ClapTrap{
-	public:
+class FragTrap : virtual public ClapTrap {
+	public :
 
-		ScavTrap();
-		ScavTrap(const std::string& name);
-		ScavTrap(const ScavTrap& other);
-		virtual ~ScavTrap();
+		FragTrap();
+		FragTrap(const std::string& name);
+		FragTrap(const FragTrap& other);
+		virtual ~FragTrap();
 
-		ScavTrap& operator=(ScavTrap const & rhs);
+		FragTrap& operator=(FragTrap const & rhs);
 
-		virtual void	attack(const std::string& target);
-
-		void			guardGate();
+		void	highFivesGuys();
 
 	protected :
-		static const unsigned int HITPOINTS = 100;
-		static const unsigned int ENERGYPOINTS = 50;
-		static const unsigned int ATTACKDAMAGE = 20;
+		static const unsigned int	HITPOINTS = 100;
+		static const unsigned int	ENERGYPOINTS = 100;
+		static const unsigned int	ATTACKDAMAGE = 30;
+
 };

@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:56:22 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 12:59:09 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/12 14:08:42 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ class ClapTrap {
 	public:
 
 		ClapTrap();
-		ClapTrap(const std::string name);
+		ClapTrap(const std::string& name);
 		ClapTrap(const ClapTrap& other);
 		virtual ~ClapTrap();
 

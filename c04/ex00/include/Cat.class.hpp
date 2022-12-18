@@ -6,15 +6,15 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 17:28:06 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 11:50:55 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "A_Animal.class.hpp"
+#include "Animal.class.hpp"
 
-class Cat : public A_Animal {
+class Cat : public Animal {
 	public:
 
 		Cat();
@@ -27,5 +27,6 @@ class Cat : public A_Animal {
 		virtual void		makeSound();
 
 	private:
+		void			_setType(std::string type);
 
 };

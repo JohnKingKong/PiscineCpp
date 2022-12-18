@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:13:41 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:50:12 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:10:42 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,38 @@
 
 
 Cat::Cat() : Animal() {
-	setType("Cat");
-	brain = new Brain();
+	_setType("Cat");
+	_brain = new Brain();
 	std::cout << "Cat constructor called(with no params)" << std::endl;
 }
 
 Cat::Cat(std::string type) : Animal(type) {
-	setType(type);
+	_setType(type);
 	std::cout << "Cat constructor called (with no params)" << std::endl;
 }
 
-Cat::Cat(const Cat& other) : Animal() {
-	*this = other;
+Cat::Cat(const Cat& other) : Animal(other) {
+	_setType(other.type);
+	this->_brain = new Brain(*(other._brain));
+	std::cout << "Cat copy constructor called" << std::endl;
 }
 
 Cat::~Cat(){
-	delete(brain);
+	delete(_brain);
 	std::cout << "Cat destructor called" << std::endl;
 }
 
 Cat& Cat::operator=(Cat const & rhs){
-	Cat::setType(rhs.getType());
+	_setType(rhs.getType());
 	return *this;
 }
 
 void	Cat::makeSound() {
 	std::cout << "MIAOU MEOW MOUUU" << std::endl;
+}
+
+void	Cat::_setType(std::string type) {
+	this->type = type;
 }
 
 

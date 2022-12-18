@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Animal.class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:24:16 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/18 11:50:34 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#pragma once
 
-#include "DiamondTrap.class.hpp"
-#include "FragTrap.class.hpp"
-#include "ClapTrap.class.hpp"
-#include "ScavTrap.class.hpp"
+#include <iostream>
 
-int main()
-{
-	DiamondTrap	Mario("Mario");
+class Animal {
+	public:
 
+		Animal();
+		Animal(std::string type);
+		Animal(const Animal& other);
+		virtual ~Animal();
 
+		Animal& operator=(Animal const & rhs);
 
-	Mario.beRepaired(3);
+		std::string		getType() const;
 
+		virtual void		makeSound();
 
+	private:
+		void			_setType(std::string type);
 
-	Mario.attack("lol");
+	protected:
+		std::string type;
 
-	Mario.guardGate();
-
-	Mario.whoAmI();
-	return 0;
-}
+};

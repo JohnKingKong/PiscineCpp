@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 18:01:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/15 18:34:51 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:15:17 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ class Brain {
 
 		std::string		ideas[100];
 
-		void		setIdea(int ideaPosition, std::string idea);
 		std::string	getIdea(int ideaPosition) const;
 
-		void		populateIdeas();
 
 	private:
+		void		_setIdea(int ideaPosition, std::string idea);
+		void		_populateIdeas();
 
 };

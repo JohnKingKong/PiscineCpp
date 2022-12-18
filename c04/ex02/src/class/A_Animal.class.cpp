@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:53:31 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:14:52 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ A_Animal::A_Animal(){
 }
 
 A_Animal::A_Animal(std::string type) {
-	setType(type);
+	_setType(type);
 	std::cout << "A_Animal constructor called (with type as param)" << std::endl;
 }
 
 A_Animal::A_Animal(const A_Animal& other){
-	*this = other;
+	_setType(other.getType());
+	std::cout << "A_Animal copy constructor called" << std::endl;
 }
 
 A_Animal::~A_Animal(){
@@ -33,16 +34,14 @@ A_Animal::~A_Animal(){
 
 
 A_Animal& A_Animal::operator=(A_Animal const & rhs){
-	A_Animal::setType(rhs.getType());
+	_setType(rhs.getType());
 	return *this;
-}
-
-
-
-void			A_Animal::setType(std::string type) {
-	this->type = type;
 }
 
 std::string		A_Animal::getType() const {
 	return (this->type);
+}
+
+void		A_Animal::_setType(std::string type) {
+	this->type = type;
 }

@@ -6,20 +6,21 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/12 15:56:22 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:17:08 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/16 14:27:56 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.class.hpp"
 
 ClapTrap::ClapTrap() {
-	setName("");
+	setName("Undefined");
 	setAttackDamage(0);
 	setHitPoints(10);
 	setEnergyPoints(10);
 };
 
-ClapTrap::ClapTrap(std::string name) : name(name){
+ClapTrap::ClapTrap(const std::string& name) {
+	setName(name);
 	setAttackDamage(0);
 	setHitPoints(10);
 	setEnergyPoints(10);
@@ -108,8 +109,9 @@ void			ClapTrap::beRepaired(unsigned int amount) {
 	else if ((int)ClapTrap::getHitPoints() <= 0)
 		std::cout << ClapTrap::getName() << " does not have any hit points left.... ITS A DEAD PARROT" << std::endl;
 	else {
+		ClapTrap::setEnergyPoints(ClapTrap::getEnergyPoints() - 1);
 		ClapTrap::setHitPoints(ClapTrap::getHitPoints() + amount);
-		std::cout << ClapTrap::getName() << " has repaired himself for ";
+		std::cout << this->name << " has repaired himself for ";
 		std::cout << amount << " hit points" << std::endl;
 	}
 }

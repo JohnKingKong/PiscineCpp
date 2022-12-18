@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:49:55 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:11:14 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ Animal::Animal(){
 }
 
 Animal::Animal(std::string type) {
-	setType(type);
+	_setType(type);
 	std::cout << "Animal constructor called (with type as param)" << std::endl;
 }
 
 Animal::Animal(const Animal& other){
-	*this = other;
+	_setType(other.getType());
 }
 
 Animal::~Animal(){
@@ -31,16 +31,9 @@ Animal::~Animal(){
 }
 
 
-
 Animal& Animal::operator=(Animal const & rhs){
-	Animal::setType(rhs.getType());
+	_setType(rhs.getType());
 	return *this;
-}
-
-
-
-void			Animal::setType(std::string type) {
-	this->type = type;
 }
 
 std::string		Animal::getType() const {
@@ -49,4 +42,9 @@ std::string		Animal::getType() const {
 
 void			Animal::makeSound() {
 	std::cout << "DEFAULT SOUND INCOMING" << std::endl;
+}
+
+
+void			Animal::_setType(std::string type) {
+	this->type = type;
 }

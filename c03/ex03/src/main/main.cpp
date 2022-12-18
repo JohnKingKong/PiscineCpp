@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.class.hpp                                 :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 14:05:02 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:18:41 by jvigneau         ###   ########.fr       */
+/*   Created: 2022/11/14 15:32:18 by jvigneau          #+#    #+#             */
+/*   Updated: 2022/12/16 15:24:50 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <iostream>
+#include "DiamondTrap.class.hpp"
+#include "FragTrap.class.hpp"
 #include "ClapTrap.class.hpp"
+#include "ScavTrap.class.hpp"
 
-class FragTrap : virtual public ClapTrap {
-	public :
+int main()
+{
+	DiamondTrap	Mario("Mario");
 
-		FragTrap();
-		FragTrap(const std::string name);
-		FragTrap(const FragTrap& other);
-		virtual ~FragTrap();
+	Mario.beRepaired(3);
 
-		FragTrap& operator=(FragTrap const & rhs);
+	Mario.attack("lol");
 
-		void	highFivesGuys();
+	Mario.guardGate();
 
-	protected :
-		static const unsigned int	HITPOINTS = 100;
-		static const unsigned int	ENERGYPOINTS = 100;
-		static const unsigned int	ATTACKDAMAGE = 30;
+	Mario.highFivesGuys();
 
-};
+	Mario.whoAmI();
+
+	return 0;
+}

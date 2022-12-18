@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:12:01 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 12:48:46 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/18 12:08:23 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class Dog : public Animal {
 		virtual void		makeSound();
 
 	private:
-		Brain*		brain;
+		Brain*		_brain;
+		void		_setType(std::string type);
 };

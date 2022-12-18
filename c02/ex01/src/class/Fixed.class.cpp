@@ -5,18 +5,20 @@
 /*----------------Constructors and Destructor---------------*/
 
 
-Fixed::Fixed() : _FixedPointValue(0) {
+Fixed::Fixed() {
+	setRawBits(0);
 	std::cout << "Default constructor called" << std::endl;
 }
 
 
-Fixed::Fixed(int const intInput) : _FixedPointValue(intInput << _nbBitsForFixedPoint) {
+Fixed::Fixed(int const intInput) {
+	setRawBits(intInput << _nbBitsForFixedPoint);
 	std::cout << "Int constructor called" << std::endl;
 }
 
 
 Fixed::Fixed(float const floatInput){
-	setRawBits((int)roundf(floatInput * (float)(1 << _nbBitsForFixedPoint)));
+	setRawBits(static_cast<int>(roundf(floatInput * static_cast<float>(1 << _nbBitsForFixedPoint))));
 	std::cout << "Float constructor called" << std::endl;
 }
 
@@ -42,7 +44,7 @@ int			Fixed::getRawBits() const {
 }
 
 float		Fixed::toFloat() const {
-	return ((float)Fixed::getRawBits() / (1 << _nbBitsForFixedPoint));
+	return (static_cast<float>(Fixed::getRawBits()) / (1 << _nbBitsForFixedPoint));
 }
 
 int			Fixed::toInt() const {

@@ -6,7 +6,7 @@
 #    By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/08/31 08:51:26 by aguay             #+#    #+#              #
-#    Updated: 2022/11/15 17:34:09 by jvigneau         ###   ########.fr        #
+#    Updated: 2022/12/17 10:51:41 by jvigneau         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@
 #	42 Quebec.
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= helloworld
+NAME 			= Polymorphism
 
 ## ----- COMPILER AND FLAGS ----- ##
 CC				= g++
@@ -51,14 +51,14 @@ OBJ_DIR			= obj/
 
 INCLUDE_DIR		= include/
 
-BIN_DIR			= bin/
+# BIN_DIR			= bin/
 
 MAIN_DIR		= $(SRCS_DIR)main
 
 CLASS_DIR		= $(SRCS_DIR)class
 
 ## ----- FILES ----- ##
-SRCS_FILES		=	A_Animal.class.cpp	\
+SRCS_FILES		=	Animal.class.cpp	\
 					Cat.class.cpp		\
 					Dog.class.cpp		\
 					WrongAnimal.class.cpp\
@@ -69,7 +69,7 @@ MAIN_FILES		=						\
 
 CLASS_FILES		=						\
 
-HEADERS_FILES	=	A_Animal.class.hpp	\
+HEADERS_FILES	=	Animal.class.hpp	\
 					Dog.class.hpp		\
 					Cat.class.hpp		\
 					WrongAnimal.class.hpp\
@@ -130,17 +130,17 @@ GREY 			= \033[37m
 UNDERLINE 		= \033[4m
 NORMAL 			= \033[0m
 
-MK_BIN			= @ if [ ! -d "./bin" ]; then \
-					mkdir bin;\
-				fi
+# MK_BIN			= @ if [ ! -d "./bin" ]; then \
+# 					mkdir bin;\
+# 				fi
 
-IF_BIN			=@ if [ ! -d "./bin" ]; then \
-					$(CC) $(OBJS) -o $(NAME); \
-				fi
+# IF_BIN			=@ if [ ! -d "./bin" ]; then \
+# 					$(CC) $(OBJS) -o $(NAME); \
+# 				fi
 
-BIN_MOVE		=@ if [ -f "./$(NAME)" ]; then \
-					mv $(NAME) $(BIN_DIR)$(NAME); \
-				fi
+# BIN_MOVE		=@ if [ -f "./$(NAME)" ]; then \
+# 					mv $(NAME) $(BIN_DIR)$(NAME); \
+# 				fi
 
 
 #	Here you could add some rules to compile an other makefile
@@ -168,12 +168,7 @@ all: obj $(NAME)
 #	3) Call the compiler with his dependencies
 #		(.o files, library.a) with -o (output) name
 $(NAME): $(OBJ_DIR) $(OBJS)
-	@ if [ -d "./$(BIN_DIR)" ]; then \
-		echo "make: Nothing to be done for \`all'."; \
-	fi
-	$(IF_BIN)
-	$(MK_BIN)
-	$(BIN_MOVE)
+	$(CC) $(OBJS) -o $(NAME)
 
 #	Create .o folder for easy clean
 obj:
@@ -209,7 +204,7 @@ clean:
 	$(RM) $(OBJ_DIR)
 
 fclean: clean
-	$(RM) $(BIN_DIR)
+	$(RM) $(NAME)
 #	Here don't forget to delete .a previously
 #	compiled in other dir/Makefile like libft
 #

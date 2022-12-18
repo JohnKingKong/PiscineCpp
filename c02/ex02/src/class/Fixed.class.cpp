@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:01:49 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/16 14:03:58 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/10 16:12:55 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@
 /*----------------Constructors and Destructor---------------*/
 
 
-Fixed::Fixed() : _FixedPointValue(0) {
+Fixed::Fixed() {
+	setRawBits(0);
 }
 
 
-Fixed::Fixed(int const intInput) : _FixedPointValue(intInput << _nbBitsForFixedPoint) {
+Fixed::Fixed(int const intInput) {
+	setRawBits(intInput << _nbBitsForFixedPoint);
 }
 
 
 Fixed::Fixed(float const floatInput){
-	setRawBits((int)roundf(floatInput * (float)(1 << _nbBitsForFixedPoint)));
+	setRawBits(static_cast<int>(roundf(floatInput * (float)(1 << _nbBitsForFixedPoint))));
 }
 
 Fixed::Fixed(const Fixed& other) {
@@ -50,7 +52,7 @@ int			Fixed::getRawBits() const {
 }
 
 float		Fixed::toFloat() const {
-	return ((float)Fixed::getRawBits() / (1 << _nbBitsForFixedPoint));
+	return (static_cast<int>(Fixed::getRawBits()) / (1 << _nbBitsForFixedPoint));
 }
 
 int			Fixed::toInt() const {
@@ -164,7 +166,8 @@ Fixed		Fixed::operator ++ (int) {
 	Fixed	tempInstance = *this;
 
 	tempInstance._FixedPointValue++;
-	return (tempInstance);
+	*this = tempInstance;
+	return (*this);
 }
 
 Fixed &		Fixed::operator ++() {
@@ -175,8 +178,9 @@ Fixed &		Fixed::operator ++() {
 Fixed		Fixed::operator -- (int) {
 	Fixed	tempInstance(*this);
 
-	this->_FixedPointValue--;
-	return(tempInstance);
+	tempInstance._FixedPointValue--;
+	*this = tempInstance;
+	return(*this);
 }
 
 Fixed &		Fixed::operator -- () {

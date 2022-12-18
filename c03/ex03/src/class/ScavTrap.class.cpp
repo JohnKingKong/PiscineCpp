@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/14 11:46:12 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/14 17:25:01 by jvigneau         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:11:27 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	hitPoints = HITPOINTS;
 	energyPoints = ENERGYPOINTS;
 	attackDamage = ATTACKDAMAGE;
-	std::cout << "dkaHdjkaskdhajksh" << std::endl;
 };
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other.name) {
