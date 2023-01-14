@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 13:46:13 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:26:39 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Bureaucrat {
 	public:
 
 		Bureaucrat();
-		Bureaucrat(std::string name, unsigned int grade);
+		Bureaucrat(std::string name,int grade);
 		Bureaucrat(const Bureaucrat& other);
 		virtual ~Bureaucrat();
 
@@ -42,7 +42,7 @@ class Bureaucrat {
 
 
 		std::string			getName() const;
-		unsigned int		getGrade() const;
+		int		getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
 
@@ -50,11 +50,11 @@ class Bureaucrat {
 	private:
 
 		std::string const	_name;
-		unsigned int		_grade;
+		int		_grade;
 
 
-		void		_verifyGrade(unsigned int grade);
-		void		_setGrade(unsigned int grade);
+		void		_verifyGrade(int grade);
+		void		_setGrade(int grade);
 
 };
 

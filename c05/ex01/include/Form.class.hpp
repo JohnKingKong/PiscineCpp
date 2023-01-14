@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 12:09:48 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:19:08 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ class Form {
 
 		Form();
 		Form(std::string const name,
-			unsigned int const gradeToSign,
-			unsigned int const gradeToUse);
+			int const gradeToSign,
+			int const gradeToUse);
 		Form(const Form& other);
 		~Form();
 
 		Form& operator=(Form const & rhs);
 
 		std::string			getName() const;
-		unsigned int		getGradeToUse() const;
-		unsigned int		getGradeToSign() const;
+		int					getGradeToUse() const;
+		int					getGradeToSign() const;
 		bool				getSignedStatus() const;
-		void				beSigned(Bureaucrat bureaucrat);
+		void				beSigned(Bureaucrat & bureaucrat);
 
 
 		class GradeTooHighException : public std::exception {
@@ -47,8 +47,8 @@ class Form {
 	private:
 
 		std::string const	_name;
-		unsigned int const	_gradeToSign;
-		unsigned int const	_gradeToUse;
+		int const			_gradeToSign;
+		int const			_gradeToUse;
 		bool				_signedForm;
 
 		void				_setSignedStatus(bool signedStatus);

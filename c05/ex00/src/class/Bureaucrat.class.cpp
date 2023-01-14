@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/18 13:51:47 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/10 14:26:52 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat() : _name("DEFAULT") {
 	std::cout << purple << "Default constructor(no params) called" << reset << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	_verifyGrade(grade);
 	_setGrade(grade);
 	std::cout << purple << "Default constructor(with params) called" << reset << std::endl;
@@ -72,7 +72,7 @@ std::ostream& operator << (std::ostream &os, Bureaucrat const & rhs){
 /*-----------Public member functions------------*/
 
 
-unsigned int	Bureaucrat::getGrade() const {
+int	Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 
@@ -87,8 +87,6 @@ void			Bureaucrat::incrementGrade() {
 void			Bureaucrat::decrementGrade() {
 	--(*this);
 }
-
-
 
 /*-------------------Exceptions------------------*/
 
@@ -106,14 +104,14 @@ const char*		Bureaucrat::GradeTooHighException::what() const throw() {
 /*-----------Private member functions-----------*/
 
 
-void	Bureaucrat::_verifyGrade(unsigned int grade) {
+void	Bureaucrat::_verifyGrade(int grade) {
 	if (grade >= 151)
 		throw GradeTooLowException();
 	else if (grade <= 0)
 		throw GradeTooHighException();
 }
 
-void	Bureaucrat::_setGrade(unsigned int grade) {
+void	Bureaucrat::_setGrade(int grade) {
 	this->_grade = grade;
 }
 

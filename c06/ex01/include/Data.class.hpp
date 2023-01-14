@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <iostream>
+
 class Data {
 	public:
 
@@ -12,7 +14,9 @@ class Data {
 
 		const void *getPointer() const;
 
+		std::string		stringTest;
+
 	private:
-		const void	*_pointer;
+		const void		*_pointer;
 
 };

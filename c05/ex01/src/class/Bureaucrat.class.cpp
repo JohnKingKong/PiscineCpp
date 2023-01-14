@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 16:53:51 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:25:51 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Bureaucrat::Bureaucrat() : _name("DEFAULT") {
 	std::cout << purple << "Default bureaucrat constructor(no params) called" << reset << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, unsigned int grade) : _name(name) {
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	_setGrade(grade);
 	_verifyGrade();
 	std::cout << purple << "Default bureaucrat constructor(with params) called" << reset << std::endl;
@@ -60,26 +60,26 @@ Bureaucrat&	Bureaucrat::operator -- () {
 	return (*this);
 }
 
-bool		Bureaucrat::operator <= (unsigned int const & rhs) {
-	if ((int)getGrade() >= (int)rhs)
+bool		Bureaucrat::operator <= (int const & rhs) {
+	if (getGrade() >= rhs)
 		return true;
 	return false;
 }
 
-bool		Bureaucrat::operator >= (unsigned int const & rhs) {
-	if ((int)getGrade() <= (int)rhs)
+bool		Bureaucrat::operator >= (int const & rhs) {
+	if (getGrade() <= rhs)
 		return true;
 	return false;
 }
 
-bool		Bureaucrat::operator < (unsigned int const & rhs) {
-	if ((int)getGrade() > (int)rhs)
+bool		Bureaucrat::operator < (int const & rhs) {
+	if (getGrade() > rhs)
 		return true;
 	return false;
 }
 
-bool		Bureaucrat::operator > (unsigned int const & rhs) {
-	if ((int)getGrade() < (int)rhs)
+bool		Bureaucrat::operator > (int const & rhs) {
+	if (getGrade() < rhs)
 		return true;
 	return false;
 }
@@ -97,7 +97,7 @@ std::ostream& operator << (std::ostream &os, Bureaucrat const & rhs){
 /*-----------Public member functions------------*/
 
 
-unsigned int	Bureaucrat::getGrade() const {
+int				Bureaucrat::getGrade() const {
 	return (this->_grade);
 }
 
@@ -115,7 +115,7 @@ void			Bureaucrat::decrementGrade() {
 
 void			Bureaucrat::signForm(Form *form) {
 	if (form->getSignedStatus() == true) {
-		std::cout << "\e[0;31m" << this->getName() << " couldn't sign " << form->getName() << " because: ";
+		std::cout << "\e[0;31m" << this->getName() << " couldn't sign \"" << form->getName() << "\" because: ";
 		throw(FormAlreadySignedException());
 	}
 	if (*this < form->getGradeToSign()) {
@@ -149,13 +149,13 @@ const char*		Bureaucrat::FormAlreadySignedException::what() const throw() {
 
 
 void	Bureaucrat::_verifyGrade() {
-	if (*this <= 151)
+	if (*this < 151)
 		throw GradeTooLowException();
-	else if (*this >= 0)
+	else if (*this > 0)
 		throw GradeTooHighException();
 }
 
-void	Bureaucrat::_setGrade(unsigned int grade) {
+void	Bureaucrat::_setGrade(int grade) {
 	this->_grade = grade;
 }
 

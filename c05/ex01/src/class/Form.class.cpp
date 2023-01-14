@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:32:11 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 14:00:32 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/10 15:24:11 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ Form::Form() :	_name("DEFAULT"),
 }
 
 Form::Form(std::string const name,
-	unsigned int const gradeToSign,
-	unsigned int const gradeToUse) :
+	int const gradeToSign,
+	int const gradeToUse) :
 				_name(name),
 				_gradeToSign(gradeToSign),
 				_gradeToUse(gradeToUse) {
@@ -86,11 +86,11 @@ std::string		Form::getName() const {
 	return (this->_name);
 }
 
-unsigned int	Form::getGradeToUse() const {
+int	Form::getGradeToUse() const {
 	return (this->_gradeToUse);
 }
 
-unsigned int	Form::getGradeToSign() const {
+int	Form::getGradeToSign() const {
 	return (this->_gradeToSign);
 }
 
@@ -98,7 +98,7 @@ bool			Form::getSignedStatus() const {
 	return (this->_signedForm);
 }
 
-void			Form::beSigned(Bureaucrat bureaucrat) {
+void			Form::beSigned(Bureaucrat & bureaucrat) {
 	if (bureaucrat.getGrade() <= this->_gradeToSign)
 		_setSignedStatus(true);
 	else
@@ -125,15 +125,15 @@ void		Form::_setSignedStatus(bool signedStatus) {
 }
 
 void		Form::_verifyGradeToUse() {
-	if ((int)this->_gradeToUse >= 151)
+	if (this->_gradeToUse > 151)
 		throw(GradeTooLowException());
-	if ((int)this->_gradeToUse <= 0)
+	if (this->_gradeToUse < 0)
 		throw(GradeTooHighException());
 }
 
 void		Form::_verifyGradeToSign() {
-	if ((int)this->_gradeToSign >= 151)
+	if (this->_gradeToSign > 151)
 		throw(Form::GradeTooLowException());
-	if ((int)this->_gradeToSign <= 0)
+	if (this->_gradeToSign < 0)
 		throw(GradeTooHighException());
 }

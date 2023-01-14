@@ -6,7 +6,7 @@
 /*   By: jvigneau <jvigneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 13:02:20 by jvigneau          #+#    #+#             */
-/*   Updated: 2022/11/19 13:57:43 by jvigneau         ###   ########.fr       */
+/*   Updated: 2023/01/04 15:25:17 by jvigneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Bureaucrat {
 	public:
 
 		Bureaucrat();
-		Bureaucrat(std::string name, unsigned int grade);
+		Bureaucrat(std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		virtual ~Bureaucrat();
 
@@ -30,10 +30,10 @@ class Bureaucrat {
 		Bureaucrat& operator=(Bureaucrat const & rhs);
 		Bureaucrat& operator++();
 		Bureaucrat& operator--();
-		bool		operator<=(unsigned int const & rhs);
-		bool		operator<(unsigned int const & rhs);
-		bool		operator>=(unsigned int const & rhs);
-		bool		operator>(unsigned int const & rhs);
+		bool		operator<=(int const & rhs);
+		bool		operator<(int const & rhs);
+		bool		operator>=(int const & rhs);
+		bool		operator>(int const & rhs);
 
 
 		class GradeTooHighException : public std::exception {
@@ -52,7 +52,7 @@ class Bureaucrat {
 
 
 		std::string			getName() const;
-		unsigned int		getGrade() const;
+		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
 		void				signForm(Form *form);
@@ -61,11 +61,11 @@ class Bureaucrat {
 	private:
 
 		std::string const	_name;
-		unsigned int		_grade;
+		int					_grade;
 
 
 		void		_verifyGrade();
-		void		_setGrade(unsigned int grade);
+		void		_setGrade(int grade);
 
 };
 
